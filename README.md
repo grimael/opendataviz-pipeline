@@ -9,6 +9,22 @@ Par **Grimael** — [GitHub](https://github.com/grimael) · [LinkedIn](https://l
 
 ---
 
+## Aperçu
+
+| Vue d'ensemble | Page pôle (Économie) |
+|---|---|
+| ![Vue d'ensemble du dashboard OpenDataViz](docs/screenshots/overview.png) | ![Page pôle Économie avec comparaison multi-pays](docs/screenshots/pole-economy.png) |
+
+| Onglet Données | Statistiques Avancées |
+|---|---|
+| ![Catalogue de données avec aperçu et export](docs/screenshots/data.png) | ![Atelier de statistiques avancées : distribution, corrélation, comparaison](docs/screenshots/statistiques.png) |
+
+**Assistant IA en action** — chaque réponse est ancrée dans une requête réelle, jamais inventée :
+
+![Assistant IA répondant à une comparaison de pays avec les valeurs réelles](docs/screenshots/assistant.png)
+
+---
+
 ## Sommaire
 
 - [Fonctionnalités](#fonctionnalités)

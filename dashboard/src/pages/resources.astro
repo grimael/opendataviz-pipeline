@@ -1,0 +1,175 @@
+---
+import Layout from "../layouts/Layout.astro";
+import BentoCard from "../components/BentoCard.astro";
+import { API_BASE_URL } from "../lib/config";
+
+const pipelineSteps = [
+  {
+    icon: "ic-node",
+    accent: "infrastructure",
+    title: "Extraction",
+    text: "Appel quotidien à l'API World Bank v2 (httpx, avec reprise automatique sur erreur) pour les 60 indicateurs et les 54 pays africains, années 2000–2024.",
+  },
+  {
+    icon: "ic-grid",
+    accent: "economy",
+    title: "Transformation & chargement",
+    text: "Nettoyage, typage et rangement dans un schéma en étoile DuckDB (pays × indicateur × année) qui garde une ligne par valeur, avec sa nature d'origine.",
+  },
+  {
+    icon: "ic-filter",
+    accent: "health",
+    title: "Imputation (Machine Learning)",
+    text: "Les valeurs manquantes sont comblées par pôle, avec KNN ou imputation itérative multivariée (scikit-learn) — jamais une valeur observée n'est écrasée, et chaque valeur comblée est marquée is_imputed = true.",
+  },
+  {
+    icon: "ic-trend",
+    accent: "education",
+    title: "Projection à 5 ans",
+    text: "Un modèle ElasticNet (régression régularisée, avec termes polynomiaux) prolonge chaque série de 5 années au-delà de la dernière donnée observée, avec un indice de confiance basé sur le R².",
+  },
+  {
+    icon: "ic-check",
+    accent: "infrastructure",
+    title: "Contrôle qualité",
+    text: "Trois dimensions sont mesurées après chaque exécution : complétude, validité (bornes plausibles par indicateur) et fraîcheur — combinées en un score global sur 100.",
+  },
+];
+
+const stepAccentClass: Record<string, string> = {
+  economy: "bg-economy-soft text-economy",
+  health: "bg-health-soft text-health",
+  education: "bg-education-soft text-education",
+  infrastructure: "bg-infrastructure-soft text-infrastructure",
+};
+
+const glossary = [
+  { term: "Observée", def: "Valeur publiée telle quelle par la Banque Mondiale, sans aucune modification." },
+  { term: "Imputée", def: "Valeur manquante comblée par un modèle de Machine Learning (KNN ou imputation itérative), à partir des autres indicateurs du même pôle et des pays voisins." },
+  { term: "Projetée", def: "Valeur future (après la dernière année observée) estimée par un modèle ElasticNet, assortie d'un indice de confiance." },
+  { term: "Pôle", def: "Regroupement thématique des indicateurs : Économie, Santé, Éducation ou Infrastructure — 15 indicateurs chacun." },
+  { term: "Score qualité", def: "Note sur 100 combinant complétude, validité et fraîcheur des données, recalculée à chaque exécution du pipeline." },
+];
+---
+
+<Layout
+  title="OpenDataViz — Ressources & méthodologie"
+  description="Comprendre OpenDataViz : sources des données, pipeline ETL, imputation par Machine Learning, projections et contrôle qualité."
+  active="resources"
+  eyebrow="Ressources"
+  pageTitle="Ressources"
+>
+  <BentoCard accent="none">
+    <div class="flex items-start gap-4">
+      <span class="w-11 h-11 rounded-xl bg-brand/10 text-brand flex items-center justify-center shrink-0">
+        <svg width="22" height="22"><use href="#ic-compass"/></svg>
+      </span>
+      <div class="min-w-0">
+        <h2 class="font-display font-bold text-base">Le projet</h2>
+        <p class="text-sm text-muted mt-1.5 leading-relaxed max-w-3xl">
+          OpenDataViz est un observatoire économique dédié à l'Afrique subsaharienne. Il rassemble, complète et
+          projette 60 indicateurs — Économie, Santé, Éducation, Infrastructure — pour les 54 pays africains, à partir de
+          données publiques ouvertes. L'objectif : offrir une vue fiable, actualisée et transparente sur l'état et la
+          trajectoire du continent, où chaque chiffre affiché indique clairement s'il est observé, comblé par Machine
+          Learning ou projeté.
+        </p>
+      </div>
+    </div>
+  </BentoCard>
+
+  <!-- ============ PIPELINE ============ -->
+  <BentoCard title="Méthodologie : du brut à la donnée exploitable" subtitle="Cinq étapes, exécutées automatiquement chaque jour">
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
+      {pipelineSteps.map((step, i) => (
+        <div class="relative bg-surface-2 border border-border rounded-xl p-4 flex flex-col gap-2.5">
+          <div class="flex items-center gap-2.5">
+            <span class:list={["w-8 h-8 rounded-lg flex items-center justify-center shrink-0", stepAccentClass[step.accent]]}>
+              <svg width="16" height="16"><use href={`#${step.icon}`}/></svg>
+            </span>
+            <span class="text-[11px] font-bold text-muted uppercase tracking-wide">Étape {i + 1}</span>
+          </div>
+          <h3 class="font-display font-bold text-[13.5px] leading-snug">{step.title}</h3>
+          <p class="text-xs text-muted leading-relaxed">{step.text}</p>
+        </div>
+      ))}
+    </div>
+  </BentoCard>
+
+  <!-- ============ SOURCES + GLOSSARY ============ -->
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+    <BentoCard accent="infrastructure" title="Sources des données">
+      <ul class="flex flex-col gap-3 text-sm">
+        <li class="flex items-start gap-2.5">
+          <svg width="15" height="15" class="text-infrastructure mt-0.5 shrink-0"><use href="#ic-node"/></svg>
+          <span><a href="https://api.worldbank.org/v2" target="_blank" rel="noopener" class="font-semibold underline hover:text-cyan-deep transition-colors">World Bank Open Data API v2</a> — source unique et primaire des 60 indicateurs, gratuite et sans authentification.</span>
+        </li>
+        <li class="flex items-start gap-2.5">
+          <svg width="15" height="15" class="text-infrastructure mt-0.5 shrink-0"><use href="#ic-grid"/></svg>
+          <span>Frontières et géométries : GeoJSON du continent africain (référencement ISO 3166-1 alpha-3) pour la carte choroplèthe.</span>
+        </li>
+        <li class="flex items-start gap-2.5">
+          <svg width="15" height="15" class="text-infrastructure mt-0.5 shrink-0"><use href="#ic-check"/></svg>
+          <span>Aucune donnée n'est saisie manuellement : tout provient de l'extraction automatisée, horodatée et rejouable.</span>
+        </li>
+      </ul>
+      <a href={`${API_BASE_URL}/docs`} target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-xs font-semibold text-infrastructure mt-4 hover:underline">
+        Documentation interactive de l'API (Swagger) <svg width="13" height="13"><use href="#ic-arrow-right"/></svg>
+      </a>
+    </BentoCard>
+
+    <BentoCard accent="economy" title="Glossaire">
+      <dl class="flex flex-col divide-y divide-border">
+        {glossary.map((g) => (
+          <div class="py-2.5 first:pt-0 last:pb-0">
+            <dt class="text-xs font-bold text-economy">{g.term}</dt>
+            <dd class="text-xs text-muted mt-0.5 leading-relaxed">{g.def}</dd>
+          </div>
+        ))}
+      </dl>
+    </BentoCard>
+  </div>
+
+  <!-- ============ QUALITY + LINKS ============ -->
+  <div class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+    <BentoCard accent="health" class="lg:col-span-2">
+      <div class="flex items-center gap-2.5 mb-3">
+        <span class="w-9 h-9 rounded-lg bg-health-soft text-health flex items-center justify-center shrink-0">
+          <svg width="18" height="18"><use href="#ic-check"/></svg>
+        </span>
+        <h3 class="font-display font-bold text-[15px]">Trois dimensions de qualité</h3>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3 text-xs">
+        <div class="bg-surface-2 border border-border rounded-xl p-3.5">
+          <div class="font-bold text-[13px] mb-1">Complétude</div>
+          <p class="text-muted leading-relaxed">Part des valeurs disponibles (observées ou imputées) sur l'ensemble pays × indicateurs × années attendu.</p>
+        </div>
+        <div class="bg-surface-2 border border-border rounded-xl p-3.5">
+          <div class="font-bold text-[13px] mb-1">Validité</div>
+          <p class="text-muted leading-relaxed">Chaque indicateur est vérifié contre des bornes plausibles (ex : un taux ne peut dépasser 100 %).</p>
+        </div>
+        <div class="bg-surface-2 border border-border rounded-xl p-3.5">
+          <div class="font-bold text-[13px] mb-1">Fraîcheur</div>
+          <p class="text-muted leading-relaxed">Ancienneté de la dernière valeur observée par indicateur, par rapport à la dernière exécution du pipeline.</p>
+        </div>
+      </div>
+    </BentoCard>
+
+    <BentoCard accent="none">
+      <h3 class="font-display font-bold text-[15px] mb-3">Aller plus loin</h3>
+      <div class="flex flex-col gap-2">
+        <a href="/data/" class="flex items-center justify-between gap-2 rounded-xl border border-border bg-surface-2 hover:bg-border/60 transition-colors px-3.5 py-2.5 text-sm font-semibold">
+          Explorer et télécharger les données
+          <svg width="14" height="14" class="text-muted shrink-0"><use href="#ic-arrow-right"/></svg>
+        </a>
+        <a href={`${API_BASE_URL}/docs`} target="_blank" rel="noopener" class="flex items-center justify-between gap-2 rounded-xl border border-border bg-surface-2 hover:bg-border/60 transition-colors px-3.5 py-2.5 text-sm font-semibold">
+          API publique (Swagger)
+          <svg width="14" height="14" class="text-muted shrink-0"><use href="#ic-arrow-right"/></svg>
+        </a>
+        <a href="/" class="flex items-center justify-between gap-2 rounded-xl border border-border bg-surface-2 hover:bg-border/60 transition-colors px-3.5 py-2.5 text-sm font-semibold">
+          Retour à la vue d'ensemble
+          <svg width="14" height="14" class="text-muted shrink-0"><use href="#ic-arrow-right"/></svg>
+        </a>
+      </div>
+    </BentoCard>
+  </div>
+</Layout>

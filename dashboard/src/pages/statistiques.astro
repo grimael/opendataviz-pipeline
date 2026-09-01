@@ -1,0 +1,100 @@
+---
+import fs from "node:fs";
+import path from "node:path";
+import Layout from "../layouts/Layout.astro";
+import BentoCard from "../components/BentoCard.astro";
+import type { IndicatorMeta } from "../lib/types";
+
+const indicatorsPath = path.join(process.cwd(), "public", "data", "indicators.json");
+const indicatorsByPole: Record<string, IndicatorMeta[]> = JSON.parse(fs.readFileSync(indicatorsPath, "utf-8"));
+
+const ANALYSIS_TYPES = [
+  { id: "distribution", label: "Distribution", icon: "ic-bars", hint: "Comment un indicateur se répartit entre les pays" },
+  { id: "comparison", label: "Comparaison", icon: "ic-node", hint: "Relation entre deux indicateurs" },
+  { id: "correlation", label: "Corrélations", icon: "ic-grid", hint: "Matrice entre plusieurs indicateurs" },
+  { id: "evolution", label: "Évolution", icon: "ic-trend", hint: "Trajectoire dans le temps" },
+  { id: "ranking", label: "Classement", icon: "ic-compass", hint: "Palmarès des pays" },
+];
+---
+
+<Layout
+  title="OpenDataViz — Statistiques Avancées"
+  description="Outil d'analyse statistique : distributions, corrélations, comparaisons et classements sur les 60 indicateurs OpenDataViz, avec export des graphiques."
+  active="statistics"
+  eyebrow="Analyse"
+  pageTitle="Statistiques Avancées"
+>
+  <div class="grid grid-cols-1 lg:grid-cols-[340px_1fr] gap-4 items-start">
+    <!-- ============ CONTROL PANEL ============ -->
+    <div class="flex flex-col gap-4 lg:sticky lg:top-5">
+      <BentoCard>
+        <div class="grid grid-cols-1 gap-1.5" id="analysis-type-picker">
+          {ANALYSIS_TYPES.map((a) => (
+            <button
+              type="button"
+              data-analysis={a.id}
+              class="analysis-btn group flex items-center gap-3 rounded-xl border border-border px-3 py-2.5 text-left transition-colors hover:bg-surface-2 data-[active=true]:bg-brand data-[active=true]:border-brand data-[active=true]:hover:bg-brand"
+            >
+              <span class="w-8 h-8 rounded-lg bg-surface-2 text-brand flex items-center justify-center shrink-0 group-data-[active=true]:bg-white/15 group-data-[active=true]:text-white">
+                <svg width="16" height="16"><use href={`#${a.icon}`}/></svg>
+              </span>
+              <span class="min-w-0">
+                <span class="block text-[13px] font-bold leading-tight group-data-[active=true]:text-white">{a.label}</span>
+                <span class="block text-[10.5px] text-muted leading-snug mt-0.5 group-data-[active=true]:text-white/70">{a.hint}</span>
+              </span>
+            </button>
+          ))}
+        </div>
+      </BentoCard>
+
+      <BentoCard allowOverflow={true}>
+        <div id="indicator-controls" class="flex flex-col gap-3"></div>
+      </BentoCard>
+    </div>
+
+    <!-- ============ CANVAS + FILTERS ============ -->
+    <div class="flex flex-col gap-4 min-w-0">
+      <BentoCard bodyClass="flex flex-col">
+        <div class="flex items-start justify-between gap-3 mb-1 flex-wrap">
+          <div class="min-w-0">
+            <h2 id="chart-title" class="font-display font-bold text-base sm:text-lg leading-snug"></h2>
+            <p id="chart-subtitle" class="text-xs text-muted mt-1"></p>
+          </div>
+          <button id="btn-export-png" type="button" class="shrink-0 flex items-center gap-1.5 rounded-xl bg-brand text-white px-3.5 py-2 text-xs font-bold hover:bg-brand-light transition-colors">
+            <svg width="14" height="14"><use href="#ic-download"/></svg> Exporter PNG
+          </button>
+        </div>
+
+        <div id="chart-empty" class="flex-1 min-h-[22rem] flex flex-col items-center justify-center text-center gap-2 text-muted">
+          <svg width="30" height="30"><use href="#ic-bars"/></svg>
+          <p class="text-xs max-w-xs">Choisissez un type d'analyse à gauche pour générer votre premier graphique.</p>
+        </div>
+
+        <div id="chart-canvas-wrap" class="w-full h-[24rem] sm:h-[30rem] hidden overflow-x-auto"></div>
+
+        <div id="chart-stats-strip" class="flex flex-wrap gap-2 mt-4 text-xs"></div>
+        <p id="chart-methodology" class="flex items-start gap-1.5 text-[10.5px] text-muted mt-3 pt-3 border-t border-border hidden">
+          <svg width="11" height="11" class="mt-0.5 shrink-0"><use href="#ic-node"/></svg>
+          <span id="chart-methodology-text"></span>
+        </p>
+      </BentoCard>
+
+      <div class="grid grid-cols-1 md:grid-cols-[1fr_auto] gap-4 items-start">
+        <BentoCard>
+          <div id="filter-controls" class="flex flex-wrap items-end gap-3 sm:gap-4"></div>
+        </BentoCard>
+
+        <BentoCard class="md:min-w-[220px]">
+          <div class="flex flex-wrap gap-2" id="chart-type-picker"></div>
+        </BentoCard>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<script define:vars={{ indicatorsByPole }}>
+  window.__INDICATORS_BY_POLE__ = indicatorsByPole;
+</script>
+<script>
+  import "../lib/statistics-app";
+</script>

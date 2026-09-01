@@ -1,0 +1,37 @@
+---
+interface Props {
+  eyebrow: string;
+  title: string;
+}
+const { eyebrow, title } = Astro.props;
+---
+
+<header class="flex items-center justify-between gap-3 px-4 sm:px-6 lg:px-9 py-4 sm:py-5 border-b border-border bg-surface">
+  <div class="flex items-center gap-3 min-w-0">
+    <button id="sidebar-open" class="lg:hidden shrink-0 w-9 h-9 rounded-lg hover:bg-surface-2 flex items-center justify-center text-ink" aria-label="Ouvrir le menu">
+      <svg width="20" height="20"><use href="#ic-grid"/></svg>
+    </button>
+    <div class="min-w-0">
+      <div class="text-[11px] font-bold tracking-wider uppercase text-cyan-deep">{eyebrow}</div>
+      <h1 class="font-display mt-0.5 text-lg sm:text-2xl font-bold tracking-tight truncate">{title}</h1>
+    </div>
+  </div>
+
+  <div class="relative shrink-0">
+    <div class="flex items-center gap-2 bg-surface-2 border border-border rounded-xl px-3 py-2 w-[130px] sm:w-[240px] text-muted transition-colors duration-300 focus-within:border-cyan">
+      <svg width="16" height="16" class="shrink-0"><use href="#ic-search"/></svg>
+      <input
+        id="global-country-search"
+        type="text"
+        placeholder="Pays…"
+        autocomplete="off"
+        class="bg-transparent outline-none text-[13px] w-full min-w-0 text-ink placeholder:text-muted"
+      />
+    </div>
+    <div id="global-country-search-results" class="hidden absolute right-0 top-[calc(100%+6px)] w-[260px] max-w-[calc(100vw-2rem)] bg-surface border border-border rounded-xl shadow-lg overflow-hidden z-50"></div>
+  </div>
+</header>
+
+<script>
+  import "../lib/countrySearch";
+</script>

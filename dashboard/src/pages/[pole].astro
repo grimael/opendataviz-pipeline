@@ -1,0 +1,129 @@
+---
+import fs from "node:fs";
+import path from "node:path";
+import Layout from "../layouts/Layout.astro";
+import BentoCard from "../components/BentoCard.astro";
+import KpiTile from "../components/KpiTile.astro";
+import { POLE_META, POLES } from "../lib/types";
+import type { IndicatorMeta } from "../lib/types";
+
+export function getStaticPaths() {
+  return POLES.map((p) => ({ params: { pole: p.toLowerCase() }, props: { poleKey: p } }));
+}
+
+const { poleKey } = Astro.props as { poleKey: (typeof POLES)[number] };
+const meta = POLE_META[poleKey];
+
+const indicatorsPath = path.join(process.cwd(), "public", "data", "indicators.json");
+const allIndicators = JSON.parse(fs.readFileSync(indicatorsPath, "utf-8"));
+const poleIndicators: IndicatorMeta[] = allIndicators[poleKey] || [];
+const kpiPicks = poleIndicators.slice(0, 6);
+---
+
+<Layout
+  title={`OpenDataViz — ${meta.label}`}
+  description={`${poleIndicators.length} indicateurs de ${meta.label.toLowerCase()} pour 54 pays africains, données réelles, imputées et projetées à 5 ans.`}
+  active={poleKey}
+  eyebrow="Pôle"
+  pageTitle={meta.label}
+>
+  <section class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
+    {kpiPicks.map((ind, i) => (
+      <KpiTile id={`kpi-${i}`} label={ind.name} icon={meta.sidebarIcon} accent={meta.accent as any} />
+    ))}
+  </section>
+
+  <!-- ============ FILTER TOOLBAR ============ -->
+  <section class="bg-surface border border-border rounded-bento p-4 sm:p-5">
+    <div class="flex flex-wrap items-end gap-3 sm:gap-4">
+
+      <div class="flex flex-col gap-1.5 w-full sm:w-auto">
+        <label class="text-[11px] font-bold text-muted uppercase tracking-wide">Indicateur</label>
+        <select id="pole-indicator" class="text-sm font-semibold rounded-xl border border-border bg-surface-2 px-3.5 py-2.5 w-full sm:min-w-[230px]">
+          {poleIndicators.map((ind) => <option value={ind.short_name}>{ind.name}</option>)}
+        </select>
+      </div>
+
+      <div class="flex flex-col gap-1.5 flex-1 min-w-[220px] relative">
+        <label class="text-[11px] font-bold text-muted uppercase tracking-wide">Pays comparés</label>
+        <div id="country-chip-box" class="flex flex-wrap items-center gap-1.5 bg-surface-2 border border-border rounded-xl px-2 py-1.5 min-h-[42px]">
+          <input id="country-picker-input" type="text" placeholder="Ajouter un pays…" autocomplete="off" class="flex-1 min-w-[100px] bg-transparent outline-none text-[13px] px-1.5 py-1 text-ink placeholder:text-muted" />
+        </div>
+        <div id="country-picker-results" class="hidden absolute left-0 top-full mt-1.5 w-full max-w-sm bg-surface border border-border rounded-xl shadow-lg overflow-hidden z-30 max-h-72 overflow-y-auto"></div>
+      </div>
+
+      <div class="flex gap-2">
+        <div class="flex flex-col gap-1.5">
+          <label class="text-[11px] font-bold text-muted uppercase tracking-wide">De</label>
+          <input type="number" id="pole-year-from" value="2000" min="2000" max="2029" class="w-[86px] text-sm font-semibold rounded-xl border border-border bg-surface-2 px-3 py-2.5" />
+        </div>
+        <div class="flex flex-col gap-1.5">
+          <label class="text-[11px] font-bold text-muted uppercase tracking-wide">À</label>
+          <input type="number" id="pole-year-to" value="2029" min="2000" max="2029" class="w-[86px] text-sm font-semibold rounded-xl border border-border bg-surface-2 px-3 py-2.5" />
+        </div>
+      </div>
+
+      <div class="flex flex-col gap-1.5">
+        <label class="text-[11px] font-bold text-muted uppercase tracking-wide">Nature des données</label>
+        <div class="flex items-center gap-1 bg-surface-2 border border-border rounded-xl p-1">
+          <span class="px-3 py-1.5 rounded-lg bg-brand text-white text-xs font-bold">Observé</span>
+          <label class="px-3 py-1.5 rounded-lg text-xs font-semibold text-muted cursor-pointer has-[:checked]:bg-brand has-[:checked]:text-white transition-colors">
+            <input type="checkbox" id="toggle-imputed" checked class="sr-only" /> Imputé
+          </label>
+          <label class="px-3 py-1.5 rounded-lg text-xs font-semibold text-muted cursor-pointer has-[:checked]:bg-brand has-[:checked]:text-white transition-colors">
+            <input type="checkbox" id="toggle-projected" checked class="sr-only" /> Projeté
+          </label>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TREND + RADAR ============ -->
+  <section class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+    <BentoCard accent={meta.accent as any}>
+      <div class="flex items-center justify-between mb-2">
+        <div id="trend-chart-title" class="font-display font-bold text-[15px]"></div>
+      </div>
+      <div class="h-72"><canvas id="chart-trend"></canvas></div>
+      <p class="flex items-start gap-1.5 text-[11px] text-muted mt-2">
+        <svg width="12" height="12" class="mt-0.5 shrink-0"><use href="#ic-node"/></svg>
+        <span>Point plein = donnée observée · point clair = valeur imputée (ML) · ligne pointillée = projection ElasticNet</span>
+      </p>
+    </BentoCard>
+
+    <BentoCard title="Comparaison multi-critères" subtitle="Top 5 pays, normalisé" bodyClass="h-[28rem] flex flex-col">
+      <div class="flex-1 min-h-0"><canvas id="chart-radar"></canvas></div>
+      <div id="radar-legend" class="flex flex-wrap gap-x-3 gap-y-1.5 justify-center pt-3 text-[12.5px] font-medium text-muted"></div>
+    </BentoCard>
+  </section>
+
+  <!-- ============ REGIONAL DONUT + RANKINGS ============ -->
+  <section class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+    <BentoCard title="Moyenne par région" class="lg:col-span-1" bodyClass="flex flex-col">
+      <div class="h-56"><canvas id="chart-region-donut"></canvas></div>
+      <div id="region-donut-legend" class="flex flex-col gap-1.5 pt-3 text-[12px]"></div>
+    </BentoCard>
+    <BentoCard title="Classement" class="lg:col-span-2">
+      <div class="overflow-x-auto max-h-80 overflow-y-auto">
+        <table class="w-full text-sm">
+          <thead class="sticky top-0 bg-surface">
+            <tr class="border-b border-border text-left text-muted text-[11px] font-bold uppercase tracking-wide">
+              <th class="py-2 pr-3">#</th>
+              <th class="py-2 pr-3">Pays</th>
+              <th class="py-2 pr-3 text-right">Valeur</th>
+              <th class="py-2 text-right">Année</th>
+            </tr>
+          </thead>
+          <tbody id="rankings-body"></tbody>
+        </table>
+      </div>
+    </BentoCard>
+  </section>
+</Layout>
+
+<script define:vars={{ poleKey }}>
+  window.__POLE_KEY__ = poleKey;
+</script>
+<script>
+  import "../lib/pole-app";
+</script>

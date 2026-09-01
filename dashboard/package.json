@@ -1,0 +1,28 @@
+{
+  "name": "dashboard-astro",
+  "type": "module",
+  "version": "0.0.1",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@sgratzl/chartjs-chart-boxplot": "^4.4.5",
+    "@tailwindcss/vite": "^4.3.3",
+    "astro": "^5.7.0",
+    "chart.js": "^4.5.1",
+    "leaflet": "^1.9.4",
+    "tailwindcss": "^4.3.3"
+  },
+  "allowScripts": {
+    "esbuild": true
+  },
+  "devDependencies": {
+    "@types/leaflet": "^1.9.22"
+  }
+}

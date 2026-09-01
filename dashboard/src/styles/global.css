@@ -1,0 +1,81 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-display: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  /* Neutrals */
+  --color-canvas: #f4f7fc;
+  --color-surface: #ffffff;
+  --color-surface-2: #eef3fa;
+  --color-border: #dbe4f0;
+  --color-ink: #0a1628;
+  --color-muted: #5a6c7d;
+
+  /* Brand — OpenDataViz identity */
+  --color-brand: #0a1628; /* primary: headers, nav, text */
+  --color-brand-light: #1a3a5c; /* secondary: secondary surfaces */
+  --color-brand-soft: #e3f8ff;
+  --color-cyan: #00d4ff; /* accent 1: links, buttons, highlights */
+  --color-cyan-deep: #0077be; /* gradient stop / deep accent */
+  --color-orange: #ff6b35; /* accent 2: secondary CTAs */
+  --color-orange-soft: #ffe9df;
+
+  --color-success: #00e676;
+  --color-success-soft: #dcfced;
+  --color-warning: #ffab00;
+  --color-warning-soft: #fff3dc;
+  --color-error: #ff1744;
+  --color-error-soft: #ffe1e7;
+
+  /* Per-pole accents — drawn strictly from the palette above */
+  --color-economy: #ff6b35;
+  --color-economy-soft: #ffe9df;
+  --color-health: #1a3a5c;
+  --color-health-soft: #e2ebf3;
+  --color-education: #00d4ff;
+  --color-education-soft: #dff8ff;
+  --color-infrastructure: #0077be;
+  --color-infrastructure-soft: #dfeeff;
+
+  --radius-bento: 1rem;
+}
+
+@layer base {
+  html {
+    color-scheme: light;
+  }
+  body {
+    background: var(--color-canvas);
+    color: var(--color-ink);
+  }
+  * {
+    scrollbar-color: var(--color-border) transparent;
+  }
+}
+
+@layer utilities {
+  /* Glassmorphism surface for cards and containers */
+  .glass {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 8px 32px rgba(10, 22, 40, 0.08);
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: -400px 0;
+    }
+    100% {
+      background-position: 400px 0;
+    }
+  }
+  .skeleton {
+    background: linear-gradient(90deg, var(--color-surface-2) 0%, #ffffff 50%, var(--color-surface-2) 100%);
+    background-size: 800px 100%;
+    animation: shimmer 1.6s ease-in-out infinite;
+  }
+}

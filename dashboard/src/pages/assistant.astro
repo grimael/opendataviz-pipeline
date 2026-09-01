@@ -1,0 +1,85 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { API_BASE_URL } from "../lib/config";
+
+const STARTERS = [
+  "Quel est le PIB du Nigeria en 2023 ?",
+  "Compare l'espérance de vie entre le Kenya, le Ghana et l'Éthiopie",
+  "Classe les 10 pays avec le meilleur accès à internet",
+  "Quelle est la projection 2029 de l'inflation en Égypte ?",
+  "Quel est le score de qualité des données ?",
+];
+---
+
+<Layout
+  title="OpenDataViz — Assistant IA"
+  description="Assistant conversationnel OpenDataViz : posez vos questions sur les données brutes, imputées et projetées des 60 indicateurs africains."
+  active="assistant"
+  eyebrow="Assistant"
+  pageTitle="Assistant IA"
+>
+  <div class="flex-1 min-h-0 flex flex-col rounded-bento border border-border bg-surface overflow-hidden">
+    <!-- Header strip -->
+    <div class="flex items-center gap-3 px-5 py-4 border-b border-border shrink-0">
+      <span class="w-9 h-9 rounded-xl bg-brand/10 text-brand flex items-center justify-center shrink-0">
+        <svg width="18" height="18"><use href="#ic-spark"/></svg>
+      </span>
+      <div class="min-w-0">
+        <div class="font-display font-bold text-sm">Assistant OpenDataViz</div>
+        <div class="text-[11px] text-muted">Répond à partir des données réelles — observées, imputées ou projetées</div>
+      </div>
+      <button id="chat-reset" class="ml-auto text-[11px] font-semibold text-muted hover:text-cyan-deep px-2.5 py-1.5 rounded-lg hover:bg-surface-2 transition-colors">
+        Nouvelle conversation
+      </button>
+    </div>
+
+    <!-- Messages -->
+    <div id="chat-messages" class="flex-1 min-h-0 overflow-y-auto px-4 sm:px-6 py-5 flex flex-col gap-4">
+      <div id="chat-empty" class="h-full flex flex-col items-center justify-center text-center gap-4 px-4">
+        <span class="w-14 h-14 rounded-2xl bg-brand/10 text-brand flex items-center justify-center">
+          <svg width="26" height="26"><use href="#ic-spark"/></svg>
+        </span>
+        <div>
+          <div class="font-display font-bold text-base">Pose ta question sur l'Afrique en chiffres</div>
+          <p class="text-xs text-muted mt-1 max-w-sm">
+            L'assistant interroge en direct la base OpenDataViz (60 indicateurs, 54 pays) — chaque réponse précise si la donnée est observée, imputée par ML, ou projetée.
+          </p>
+        </div>
+        <div class="flex flex-wrap justify-center gap-2 max-w-lg" id="chat-starters">
+          {STARTERS.map((s) => (
+            <button type="button" data-starter={s} class="text-[12px] font-semibold px-3 py-2 rounded-full border border-border bg-surface-2 hover:bg-border/60 transition-colors">
+              {s}
+            </button>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <!-- Composer -->
+    <div class="border-t border-border p-3 sm:p-4 shrink-0">
+      <form id="chat-form" class="flex items-end gap-2">
+        <textarea
+          id="chat-input"
+          rows="1"
+          placeholder="Écris ta question… (ex : quelle est la population du Sénégal ?)"
+          class="flex-1 resize-none max-h-32 rounded-2xl border border-border bg-surface-2 px-4 py-3 text-sm outline-none focus:border-brand-light transition-colors"
+        ></textarea>
+        <button
+          type="submit"
+          id="chat-send"
+          class="shrink-0 w-11 h-11 rounded-2xl bg-brand text-white flex items-center justify-center hover:bg-brand-light transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+          aria-label="Envoyer"
+        >
+          <svg width="18" height="18"><use href="#ic-send"/></svg>
+        </button>
+      </form>
+    </div>
+  </div>
+</Layout>
+
+<script define:vars={{ apiBaseUrl: API_BASE_URL }}>
+  window.__API_BASE_URL__ = apiBaseUrl;
+</script>
+<script>
+  import "../lib/assistant-app";
+</script>

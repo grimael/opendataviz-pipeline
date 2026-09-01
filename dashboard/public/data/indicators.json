@@ -1,0 +1,370 @@
+{
+  "Economy": [
+    {
+      "code": "GC.DOD.TOTL.GD.ZS",
+      "short_name": "government_debt",
+      "name": "Central Government Debt, Total (% of GDP)",
+      "unit": "%"
+    },
+    {
+      "code": "NE.EXP.GNFS.ZS",
+      "short_name": "exports_gdp",
+      "name": "Exports of Goods and Services (% of GDP)",
+      "unit": "%"
+    },
+    {
+      "code": "DT.DOD.DECT.GN.ZS",
+      "short_name": "external_debt",
+      "name": "External Debt Stocks (% of GNI)",
+      "unit": "%"
+    },
+    {
+      "code": "BX.KLT.DINV.WD.GD.ZS",
+      "short_name": "fdi_inflows",
+      "name": "FDI Inflows (% of GDP)",
+      "unit": "%"
+    },
+    {
+      "code": "NY.GDP.MKTP.CD",
+      "short_name": "gdp",
+      "name": "GDP (current US$)",
+      "unit": "US$"
+    },
+    {
+      "code": "NY.GDP.MKTP.KD.ZG",
+      "short_name": "gdp_growth",
+      "name": "GDP Growth (annual %)",
+      "unit": "%"
+    },
+    {
+      "code": "NY.GDP.PCAP.PP.CD",
+      "short_name": "gdp_per_capita_ppp",
+      "name": "GDP per Capita, PPP (current international $)",
+      "unit": "Int'l $"
+    },
+    {
+      "code": "SI.POV.GINI",
+      "short_name": "gini_index",
+      "name": "GINI Index",
+      "unit": "index"
+    },
+    {
+      "code": "NE.GDI.FTOT.ZS",
+      "short_name": "capital_formation",
+      "name": "Gross Fixed Capital Formation (% of GDP)",
+      "unit": "%"
+    },
+    {
+      "code": "NY.GNS.ICTR.ZS",
+      "short_name": "gross_savings",
+      "name": "Gross Savings (% of GDP)",
+      "unit": "%"
+    },
+    {
+      "code": "NE.IMP.GNFS.ZS",
+      "short_name": "imports_gdp",
+      "name": "Imports of Goods and Services (% of GDP)",
+      "unit": "%"
+    },
+    {
+      "code": "FP.CPI.TOTL.ZG",
+      "short_name": "inflation",
+      "name": "Inflation (CPI, annual %)",
+      "unit": "%"
+    },
+    {
+      "code": "PA.NUS.FCRF",
+      "short_name": "exchange_rate",
+      "name": "Official Exchange Rate (LCU per US$)",
+      "unit": "LCU/US$"
+    },
+    {
+      "code": "SP.POP.TOTL",
+      "short_name": "population",
+      "name": "Population",
+      "unit": "count"
+    },
+    {
+      "code": "SL.UEM.TOTL.ZS",
+      "short_name": "unemployment",
+      "name": "Unemployment (% of labor force)",
+      "unit": "%"
+    }
+  ],
+  "Health": [
+    {
+      "code": "SH.XPD.CHEX.GD.ZS",
+      "short_name": "health_expenditure_gdp",
+      "name": "Current Health Expenditure (% of GDP)",
+      "unit": "%"
+    },
+    {
+      "code": "SP.DYN.TFRT.IN",
+      "short_name": "fertility_rate",
+      "name": "Fertility Rate, Total (births per woman)",
+      "unit": "births/woman"
+    },
+    {
+      "code": "SH.DYN.AIDS.ZS",
+      "short_name": "hiv_prevalence",
+      "name": "HIV Prevalence (% ages 15-49)",
+      "unit": "%"
+    },
+    {
+      "code": "SH.XPD.CHEX.PC.CD",
+      "short_name": "health_expenditure_capita",
+      "name": "Health Expenditure per Capita (current US$)",
+      "unit": "US$"
+    },
+    {
+      "code": "SH.MED.BEDS.ZS",
+      "short_name": "hospital_beds",
+      "name": "Hospital Beds (per 1,000 people)",
+      "unit": "per 1,000"
+    },
+    {
+      "code": "SH.IMM.IDPT",
+      "short_name": "immunization_dpt",
+      "name": "Immunization, DPT (% of children ages 12-23 months)",
+      "unit": "%"
+    },
+    {
+      "code": "SH.IMM.MEAS",
+      "short_name": "immunization_measles",
+      "name": "Immunization, Measles (% of children ages 12-23 months)",
+      "unit": "%"
+    },
+    {
+      "code": "SH.TBS.INCD",
+      "short_name": "tuberculosis_incidence",
+      "name": "Incidence of Tuberculosis (per 100,000 people)",
+      "unit": "per 100,000"
+    },
+    {
+      "code": "SP.DYN.IMRT.IN",
+      "short_name": "infant_mortality",
+      "name": "Infant Mortality Rate (per 1,000 live births)",
+      "unit": "per 1,000"
+    },
+    {
+      "code": "SP.DYN.LE00.IN",
+      "short_name": "life_expectancy",
+      "name": "Life Expectancy at Birth",
+      "unit": "years"
+    },
+    {
+      "code": "SH.STA.MMRT",
+      "short_name": "maternal_mortality",
+      "name": "Maternal Mortality Ratio (per 100,000 live births)",
+      "unit": "per 100,000"
+    },
+    {
+      "code": "SH.MED.PHYS.ZS",
+      "short_name": "physicians_density",
+      "name": "Physicians (per 1,000 people)",
+      "unit": "per 1,000"
+    },
+    {
+      "code": "SH.STA.STNT.ZS",
+      "short_name": "child_stunting",
+      "name": "Prevalence of Stunting, Children Under 5 (%)",
+      "unit": "%"
+    },
+    {
+      "code": "SN.ITK.DEFC.ZS",
+      "short_name": "undernourishment",
+      "name": "Prevalence of Undernourishment (% of population)",
+      "unit": "%"
+    },
+    {
+      "code": "SH.DYN.MORT",
+      "short_name": "under5_mortality",
+      "name": "Under-5 Mortality Rate (per 1,000 live births)",
+      "unit": "per 1,000"
+    }
+  ],
+  "Education": [
+    {
+      "code": "SE.COM.DURS",
+      "short_name": "compulsory_education_years",
+      "name": "Compulsory Education, Duration (years)",
+      "unit": "years"
+    },
+    {
+      "code": "SE.XPD.PRIM.PC.ZS",
+      "short_name": "education_expenditure_per_student",
+      "name": "Expenditure per Student, Primary (% of GDP per capita)",
+      "unit": "%"
+    },
+    {
+      "code": "SE.ENR.PRSC.FM.ZS",
+      "short_name": "gender_parity_index",
+      "name": "Gender Parity Index, Primary and Secondary Enrollment",
+      "unit": "index"
+    },
+    {
+      "code": "SE.XPD.TOTL.GD.ZS",
+      "short_name": "education_expenditure_gdp",
+      "name": "Government Expenditure on Education (% of GDP)",
+      "unit": "%"
+    },
+    {
+      "code": "SE.ADT.LITR.ZS",
+      "short_name": "literacy_rate",
+      "name": "Literacy Rate (adult %)",
+      "unit": "%"
+    },
+    {
+      "code": "SE.SEC.CMPT.LO.ZS",
+      "short_name": "lower_secondary_completion",
+      "name": "Lower Secondary Completion Rate (%)",
+      "unit": "%"
+    },
+    {
+      "code": "SE.PRM.CMPT.ZS",
+      "short_name": "primary_completion",
+      "name": "Primary Completion Rate (%)",
+      "unit": "%"
+    },
+    {
+      "code": "SE.SEC.PROG.ZS",
+      "short_name": "secondary_progression",
+      "name": "Progression to Secondary School (%)",
+      "unit": "%"
+    },
+    {
+      "code": "SE.PRM.ENRL.TC.ZS",
+      "short_name": "pupil_teacher_ratio",
+      "name": "Pupil-Teacher Ratio, Primary",
+      "unit": "ratio"
+    },
+    {
+      "code": "SE.PRE.ENRR",
+      "short_name": "preprimary_enrollment",
+      "name": "School Enrollment, Pre-Primary (% gross)",
+      "unit": "%"
+    },
+    {
+      "code": "SE.PRM.ENRR",
+      "short_name": "primary_enrollment",
+      "name": "School Enrollment, Primary (% gross)",
+      "unit": "%"
+    },
+    {
+      "code": "SE.PRM.NENR",
+      "short_name": "primary_enrollment_net",
+      "name": "School Enrollment, Primary (% net)",
+      "unit": "%"
+    },
+    {
+      "code": "SE.SEC.ENRR",
+      "short_name": "secondary_enrollment",
+      "name": "School Enrollment, Secondary (% gross)",
+      "unit": "%"
+    },
+    {
+      "code": "SE.TER.ENRR",
+      "short_name": "tertiary_enrollment",
+      "name": "School Enrollment, Tertiary (% gross)",
+      "unit": "%"
+    },
+    {
+      "code": "SE.ADT.1524.LT.ZS",
+      "short_name": "youth_literacy_rate",
+      "name": "Youth Literacy Rate (% ages 15-24)",
+      "unit": "%"
+    }
+  ],
+  "Infrastructure": [
+    {
+      "code": "EG.ELC.ACCS.ZS",
+      "short_name": "electricity_access",
+      "name": "Access to Electricity (%)",
+      "unit": "%"
+    },
+    {
+      "code": "EG.ELC.ACCS.RU.ZS",
+      "short_name": "electricity_access_rural",
+      "name": "Access to Electricity, Rural (%)",
+      "unit": "%"
+    },
+    {
+      "code": "EG.ELC.ACCS.UR.ZS",
+      "short_name": "electricity_access_urban",
+      "name": "Access to Electricity, Urban (%)",
+      "unit": "%"
+    },
+    {
+      "code": "IS.AIR.PSGR",
+      "short_name": "air_passengers",
+      "name": "Air Transport, Passengers Carried",
+      "unit": "count"
+    },
+    {
+      "code": "SH.H2O.BASW.ZS",
+      "short_name": "basic_water_access",
+      "name": "Basic Drinking Water Services (% of population)",
+      "unit": "%"
+    },
+    {
+      "code": "SH.STA.BASS.ZS",
+      "short_name": "basic_sanitation_access",
+      "name": "Basic Sanitation Services (% of population)",
+      "unit": "%"
+    },
+    {
+      "code": "EG.USE.ELEC.KH.PC",
+      "short_name": "electricity_consumption",
+      "name": "Electric Power Consumption (kWh per capita)",
+      "unit": "kWh"
+    },
+    {
+      "code": "IT.NET.BBND.P2",
+      "short_name": "broadband_subscriptions",
+      "name": "Fixed Broadband Subscriptions (per 100 people)",
+      "unit": "per 100"
+    },
+    {
+      "code": "IT.MLT.MAIN.P2",
+      "short_name": "fixed_telephone",
+      "name": "Fixed Telephone Subscriptions (per 100 people)",
+      "unit": "per 100"
+    },
+    {
+      "code": "IT.NET.USER.ZS",
+      "short_name": "internet_users",
+      "name": "Internet Users (% of population)",
+      "unit": "%"
+    },
+    {
+      "code": "IT.CEL.SETS.P2",
+      "short_name": "mobile_subscriptions",
+      "name": "Mobile Cellular Subscriptions (per 100 people)",
+      "unit": "per 100"
+    },
+    {
+      "code": "IS.VEH.NVEH.P3",
+      "short_name": "motor_vehicles",
+      "name": "Motor Vehicles (per 1,000 people)",
+      "unit": "per 1,000"
+    },
+    {
+      "code": "IS.ROD.PAVE.ZS",
+      "short_name": "paved_roads",
+      "name": "Paved Roads (% of total roads)",
+      "unit": "%"
+    },
+    {
+      "code": "EG.FEC.RNEW.ZS",
+      "short_name": "renewable_energy",
+      "name": "Renewable Energy Consumption (% of total final energy)",
+      "unit": "%"
+    },
+    {
+      "code": "SH.H2O.SMDW.ZS",
+      "short_name": "safe_water_access",
+      "name": "Safely Managed Drinking Water Services (% of population)",
+      "unit": "%"
+    }
+  ]
+}

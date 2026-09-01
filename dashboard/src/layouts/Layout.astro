@@ -1,0 +1,46 @@
+---
+import "../styles/global.css";
+import IconSprite from "../components/IconSprite.astro";
+import Sidebar from "../components/Sidebar.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+interface Props {
+  title: string;
+  description: string;
+  active: string;
+  eyebrow: string;
+  pageTitle: string;
+}
+
+const { title, description, active, eyebrow, pageTitle } = Astro.props;
+---
+
+<!doctype html>
+<html lang="fr" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'><defs><linearGradient id='g' x1='2' y1='2' x2='38' y2='38'><stop offset='0' stop-color='%2300D4FF'/><stop offset='1' stop-color='%230077BE'/></linearGradient></defs><rect width='40' height='40' rx='11' fill='url(%23g)'/><path d='M20 10 L28.5 20 L20 30 L11.5 20 Z' fill='none' stroke='%23FFFFFF' stroke-width='2' stroke-linejoin='round'/></svg>" />
+  </head>
+  <body class="font-sans antialiased min-h-screen bg-canvas text-ink">
+    <IconSprite />
+    <Sidebar active={active} />
+    <div class="flex flex-col min-h-screen lg:pl-[264px]">
+      <Header eyebrow={eyebrow} title={pageTitle} />
+      <main class="flex-1 min-h-0 px-4 sm:px-6 lg:px-9 py-5 sm:py-7 flex flex-col gap-4 sm:gap-5 min-w-0 overflow-x-hidden">
+        <slot />
+      </main>
+      <Footer />
+    </div>
+    <script>
+      import { initSidebarQuality } from "../lib/qualityBadge";
+      initSidebarQuality();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,608 @@
+{
+  "gdp": {
+    "name": "GDP (current US$)",
+    "category": "Economy",
+    "unit": "US$",
+    "avg": 53851944822.44,
+    "min": 824992558.05,
+    "max": 401144998373.59,
+    "median": 19818246368.26,
+    "countries": 54
+  },
+  "gdp_growth": {
+    "name": "GDP Growth (annual %)",
+    "category": "Economy",
+    "unit": "%",
+    "avg": 3.68,
+    "min": -13.96,
+    "max": 8.32,
+    "median": 4.11,
+    "countries": 54
+  },
+  "gdp_per_capita_ppp": {
+    "name": "GDP per Capita, PPP (current international $)",
+    "category": "Economy",
+    "unit": "Int'l $",
+    "avg": 7710.24,
+    "min": 1193.04,
+    "max": 33339.49,
+    "median": 4506.47,
+    "countries": 54
+  },
+  "population": {
+    "name": "Population",
+    "category": "Economy",
+    "unit": "count",
+    "avg": 28003645.91,
+    "min": 121354.0,
+    "max": 232679478.0,
+    "median": 14608754.5,
+    "countries": 54
+  },
+  "inflation": {
+    "name": "Inflation (CPI, annual %)",
+    "category": "Economy",
+    "unit": "%",
+    "avg": 17.56,
+    "min": 0.31,
+    "max": 371.4,
+    "median": 4.51,
+    "countries": 54
+  },
+  "unemployment": {
+    "name": "Unemployment (% of labor force)",
+    "category": "Economy",
+    "unit": "%",
+    "avg": 8.97,
+    "min": 0.38,
+    "max": 34.64,
+    "median": 6.1,
+    "countries": 54
+  },
+  "fdi_inflows": {
+    "name": "FDI Inflows (% of GDP)",
+    "category": "Economy",
+    "unit": "%",
+    "avg": 3.69,
+    "min": -2.02,
+    "max": 15.42,
+    "median": 2.35,
+    "countries": 54
+  },
+  "gini_index": {
+    "name": "GINI Index",
+    "category": "Economy",
+    "unit": "index",
+    "avg": 41.45,
+    "min": 30.3,
+    "max": 58.13,
+    "median": 40.82,
+    "countries": 54
+  },
+  "exports_gdp": {
+    "name": "Exports of Goods and Services (% of GDP)",
+    "category": "Economy",
+    "unit": "%",
+    "avg": 31.52,
+    "min": 0.72,
+    "max": 126.42,
+    "median": 26.74,
+    "countries": 54
+  },
+  "imports_gdp": {
+    "name": "Imports of Goods and Services (% of GDP)",
+    "category": "Economy",
+    "unit": "%",
+    "avg": 39.16,
+    "min": 1.27,
+    "max": 114.82,
+    "median": 31.47,
+    "countries": 54
+  },
+  "external_debt": {
+    "name": "External Debt Stocks (% of GNI)",
+    "category": "Economy",
+    "unit": "%",
+    "avg": 58.95,
+    "min": 2.67,
+    "max": 350.57,
+    "median": 44.86,
+    "countries": 54
+  },
+  "gross_savings": {
+    "name": "Gross Savings (% of GDP)",
+    "category": "Economy",
+    "unit": "%",
+    "avg": 18.86,
+    "min": -1.99,
+    "max": 40.83,
+    "median": 17.5,
+    "countries": 54
+  },
+  "capital_formation": {
+    "name": "Gross Fixed Capital Formation (% of GDP)",
+    "category": "Economy",
+    "unit": "%",
+    "avg": 20.42,
+    "min": 2.89,
+    "max": 41.15,
+    "median": 20.73,
+    "countries": 54
+  },
+  "exchange_rate": {
+    "name": "Official Exchange Rate (LCU per US$)",
+    "category": "Economy",
+    "unit": "LCU/US$",
+    "avg": 737.07,
+    "min": 3.11,
+    "max": 4525.42,
+    "median": 330.11,
+    "countries": 54
+  },
+  "government_debt": {
+    "name": "Central Government Debt, Total (% of GDP)",
+    "category": "Economy",
+    "unit": "%",
+    "avg": 43.37,
+    "min": 9.07,
+    "max": 82.76,
+    "median": 42.64,
+    "countries": 54
+  },
+  "life_expectancy": {
+    "name": "Life Expectancy at Birth",
+    "category": "Health",
+    "unit": "years",
+    "avg": 65.69,
+    "min": 54.63,
+    "max": 76.71,
+    "median": 65.85,
+    "countries": 54
+  },
+  "health_expenditure_gdp": {
+    "name": "Current Health Expenditure (% of GDP)",
+    "category": "Health",
+    "unit": "%",
+    "avg": 5.58,
+    "min": 2.43,
+    "max": 13.43,
+    "median": 5.34,
+    "countries": 54
+  },
+  "physicians_density": {
+    "name": "Physicians (per 1,000 people)",
+    "category": "Health",
+    "unit": "per 1,000",
+    "avg": 0.36,
+    "min": 0.04,
+    "max": 2.15,
+    "median": 0.18,
+    "countries": 54
+  },
+  "infant_mortality": {
+    "name": "Infant Mortality Rate (per 1,000 live births)",
+    "category": "Health",
+    "unit": "per 1,000",
+    "avg": 37.83,
+    "min": 7.9,
+    "max": 71.9,
+    "median": 35.45,
+    "countries": 54
+  },
+  "hiv_prevalence": {
+    "name": "HIV Prevalence (% ages 15-49)",
+    "category": "Health",
+    "unit": "%",
+    "avg": 3.16,
+    "min": 0.1,
+    "max": 23.4,
+    "median": 1.05,
+    "countries": 54
+  },
+  "immunization_dpt": {
+    "name": "Immunization, DPT (% of children ages 12-23 months)",
+    "category": "Health",
+    "unit": "%",
+    "avg": 80.39,
+    "min": 39.0,
+    "max": 98.0,
+    "median": 83.5,
+    "countries": 54
+  },
+  "hospital_beds": {
+    "name": "Hospital Beds (per 1,000 people)",
+    "category": "Health",
+    "unit": "per 1,000",
+    "avg": 1.16,
+    "min": 0.26,
+    "max": 3.64,
+    "median": 0.91,
+    "countries": 54
+  },
+  "health_expenditure_capita": {
+    "name": "Health Expenditure per Capita (current US$)",
+    "category": "Health",
+    "unit": "US$",
+    "avg": 121.97,
+    "min": 17.84,
+    "max": 601.31,
+    "median": 63.5,
+    "countries": 54
+  },
+  "under5_mortality": {
+    "name": "Under-5 Mortality Rate (per 1,000 live births)",
+    "category": "Health",
+    "unit": "per 1,000",
+    "avg": 52.88,
+    "min": 9.8,
+    "max": 115.6,
+    "median": 48.55,
+    "countries": 54
+  },
+  "maternal_mortality": {
+    "name": "Maternal Mortality Ratio (per 100,000 live births)",
+    "category": "Health",
+    "unit": "per 100,000",
+    "avg": 308.05,
+    "min": 38.35,
+    "max": 1036.04,
+    "median": 258.57,
+    "countries": 54
+  },
+  "fertility_rate": {
+    "name": "Fertility Rate, Total (births per woman)",
+    "category": "Health",
+    "unit": "births/woman",
+    "avg": 3.8,
+    "min": 1.44,
+    "max": 6.03,
+    "median": 3.84,
+    "countries": 54
+  },
+  "immunization_measles": {
+    "name": "Immunization, Measles (% of children ages 12-23 months)",
+    "category": "Health",
+    "unit": "%",
+    "avg": 77.94,
+    "min": 41.0,
+    "max": 98.0,
+    "median": 82.5,
+    "countries": 54
+  },
+  "tuberculosis_incidence": {
+    "name": "Incidence of Tuberculosis (per 100,000 people)",
+    "category": "Health",
+    "unit": "per 100,000",
+    "avg": 179.98,
+    "min": 10.0,
+    "max": 548.0,
+    "median": 139.5,
+    "countries": 54
+  },
+  "child_stunting": {
+    "name": "Prevalence of Stunting, Children Under 5 (%)",
+    "category": "Health",
+    "unit": "%",
+    "avg": 26.6,
+    "min": 8.74,
+    "max": 52.8,
+    "median": 25.8,
+    "countries": 54
+  },
+  "undernourishment": {
+    "name": "Prevalence of Undernourishment (% of population)",
+    "category": "Health",
+    "unit": "%",
+    "avg": 18.41,
+    "min": 2.63,
+    "max": 36.57,
+    "median": 18.29,
+    "countries": 54
+  },
+  "literacy_rate": {
+    "name": "Literacy Rate (adult %)",
+    "category": "Education",
+    "unit": "%",
+    "avg": 67.93,
+    "min": 26.83,
+    "max": 92.92,
+    "median": 70.71,
+    "countries": 54
+  },
+  "primary_enrollment": {
+    "name": "School Enrollment, Primary (% gross)",
+    "category": "Education",
+    "unit": "%",
+    "avg": 103.94,
+    "min": 64.65,
+    "max": 162.12,
+    "median": 104.79,
+    "countries": 54
+  },
+  "secondary_enrollment": {
+    "name": "School Enrollment, Secondary (% gross)",
+    "category": "Education",
+    "unit": "%",
+    "avg": 53.32,
+    "min": 18.37,
+    "max": 122.12,
+    "median": 50.0,
+    "countries": 54
+  },
+  "education_expenditure_gdp": {
+    "name": "Government Expenditure on Education (% of GDP)",
+    "category": "Education",
+    "unit": "%",
+    "avg": 4.38,
+    "min": 2.26,
+    "max": 9.08,
+    "median": 4.19,
+    "countries": 54
+  },
+  "pupil_teacher_ratio": {
+    "name": "Pupil-Teacher Ratio, Primary",
+    "category": "Education",
+    "unit": "ratio",
+    "avg": 39.73,
+    "min": 17.03,
+    "max": 71.21,
+    "median": 39.69,
+    "countries": 54
+  },
+  "education_expenditure_per_student": {
+    "name": "Expenditure per Student, Primary (% of GDP per capita)",
+    "category": "Education",
+    "unit": "%",
+    "avg": 12.73,
+    "min": 6.46,
+    "max": 21.54,
+    "median": 12.14,
+    "countries": 54
+  },
+  "tertiary_enrollment": {
+    "name": "School Enrollment, Tertiary (% gross)",
+    "category": "Education",
+    "unit": "%",
+    "avg": 13.13,
+    "min": 0.92,
+    "max": 54.43,
+    "median": 9.7,
+    "countries": 54
+  },
+  "primary_completion": {
+    "name": "Primary Completion Rate (%)",
+    "category": "Education",
+    "unit": "%",
+    "avg": 73.19,
+    "min": 38.47,
+    "max": 106.37,
+    "median": 74.0,
+    "countries": 54
+  },
+  "lower_secondary_completion": {
+    "name": "Lower Secondary Completion Rate (%)",
+    "category": "Education",
+    "unit": "%",
+    "avg": 48.88,
+    "min": 11.89,
+    "max": 93.19,
+    "median": 47.58,
+    "countries": 54
+  },
+  "youth_literacy_rate": {
+    "name": "Youth Literacy Rate (% ages 15-24)",
+    "category": "Education",
+    "unit": "%",
+    "avg": 80.37,
+    "min": 43.95,
+    "max": 99.38,
+    "median": 80.23,
+    "countries": 54
+  },
+  "primary_enrollment_net": {
+    "name": "School Enrollment, Primary (% net)",
+    "category": "Education",
+    "unit": "%",
+    "avg": 84.31,
+    "min": 52.94,
+    "max": 97.59,
+    "median": 88.3,
+    "countries": 54
+  },
+  "gender_parity_index": {
+    "name": "Gender Parity Index, Primary and Secondary Enrollment",
+    "category": "Education",
+    "unit": "index",
+    "avg": 0.94,
+    "min": 0.7,
+    "max": 1.11,
+    "median": 0.95,
+    "countries": 54
+  },
+  "preprimary_enrollment": {
+    "name": "School Enrollment, Pre-Primary (% gross)",
+    "category": "Education",
+    "unit": "%",
+    "avg": 32.26,
+    "min": 1.25,
+    "max": 117.16,
+    "median": 24.81,
+    "countries": 54
+  },
+  "compulsory_education_years": {
+    "name": "Compulsory Education, Duration (years)",
+    "category": "Education",
+    "unit": "years",
+    "avg": 8.43,
+    "min": 5.0,
+    "max": 12.0,
+    "median": 9.0,
+    "countries": 54
+  },
+  "secondary_progression": {
+    "name": "Progression to Secondary School (%)",
+    "category": "Education",
+    "unit": "%",
+    "avg": 81.72,
+    "min": 58.46,
+    "max": 98.87,
+    "median": 84.25,
+    "countries": 54
+  },
+  "internet_users": {
+    "name": "Internet Users (% of population)",
+    "category": "Infrastructure",
+    "unit": "%",
+    "avg": 42.82,
+    "min": 0.86,
+    "max": 91.2,
+    "median": 40.09,
+    "countries": 54
+  },
+  "electricity_access": {
+    "name": "Access to Electricity (%)",
+    "category": "Infrastructure",
+    "unit": "%",
+    "avg": 61.89,
+    "min": 5.4,
+    "max": 100.0,
+    "median": 60.85,
+    "countries": 54
+  },
+  "basic_water_access": {
+    "name": "Basic Drinking Water Services (% of population)",
+    "category": "Infrastructure",
+    "unit": "%",
+    "avg": 74.5,
+    "min": 35.68,
+    "max": 99.93,
+    "median": 76.27,
+    "countries": 54
+  },
+  "basic_sanitation_access": {
+    "name": "Basic Sanitation Services (% of population)",
+    "category": "Infrastructure",
+    "unit": "%",
+    "avg": 49.02,
+    "min": 10.36,
+    "max": 99.7,
+    "median": 45.85,
+    "countries": 54
+  },
+  "fixed_telephone": {
+    "name": "Fixed Telephone Subscriptions (per 100 people)",
+    "category": "Infrastructure",
+    "unit": "per 100",
+    "avg": 3.4,
+    "min": null,
+    "max": 36.88,
+    "median": 0.67,
+    "countries": 54
+  },
+  "paved_roads": {
+    "name": "Paved Roads (% of total roads)",
+    "category": "Infrastructure",
+    "unit": "%",
+    "avg": 30.36,
+    "min": 8.01,
+    "max": 96.98,
+    "median": 21.52,
+    "countries": 54
+  },
+  "electricity_consumption": {
+    "name": "Electric Power Consumption (kWh per capita)",
+    "category": "Infrastructure",
+    "unit": "kWh",
+    "avg": 764.51,
+    "min": 17.61,
+    "max": 3857.51,
+    "median": 389.85,
+    "countries": 54
+  },
+  "mobile_subscriptions": {
+    "name": "Mobile Cellular Subscriptions (per 100 people)",
+    "category": "Infrastructure",
+    "unit": "per 100",
+    "avg": 99.11,
+    "min": 20.04,
+    "max": 183.88,
+    "median": 96.24,
+    "countries": 54
+  },
+  "broadband_subscriptions": {
+    "name": "Fixed Broadband Subscriptions (per 100 people)",
+    "category": "Infrastructure",
+    "unit": "per 100",
+    "avg": 3.32,
+    "min": null,
+    "max": 31.6,
+    "median": 0.64,
+    "countries": 54
+  },
+  "electricity_access_rural": {
+    "name": "Access to Electricity, Rural (%)",
+    "category": "Infrastructure",
+    "unit": "%",
+    "avg": 47.4,
+    "min": 0.7,
+    "max": 100.0,
+    "median": 42.95,
+    "countries": 54
+  },
+  "electricity_access_urban": {
+    "name": "Access to Electricity, Urban (%)",
+    "category": "Infrastructure",
+    "unit": "%",
+    "avg": 82.76,
+    "min": 22.8,
+    "max": 100.0,
+    "median": 86.7,
+    "countries": 54
+  },
+  "renewable_energy": {
+    "name": "Renewable Energy Consumption (% of total final energy)",
+    "category": "Infrastructure",
+    "unit": "%",
+    "avg": 52.67,
+    "min": 1.57,
+    "max": 96.36,
+    "median": 60.73,
+    "countries": 54
+  },
+  "motor_vehicles": {
+    "name": "Motor Vehicles (per 1,000 people)",
+    "category": "Infrastructure",
+    "unit": "per 1,000",
+    "avg": 41.5,
+    "min": 4.58,
+    "max": 188.76,
+    "median": 21.75,
+    "countries": 54
+  },
+  "air_passengers": {
+    "name": "Air Transport, Passengers Carried",
+    "category": "Infrastructure",
+    "unit": "count",
+    "avg": 1767216.17,
+    "min": 3229.18,
+    "max": 13951868.84,
+    "median": 606901.34,
+    "countries": 54
+  },
+  "safe_water_access": {
+    "name": "Safely Managed Drinking Water Services (% of population)",
+    "category": "Infrastructure",
+    "unit": "%",
+    "avg": 36.26,
+    "min": 5.76,
+    "max": 79.98,
+    "median": 33.71,
+    "countries": 54
+  },
+  "_africa_totals": {
+    "total_gdp": 2908005020412.0,
+    "total_population": 1512196879.0,
+    "countries_tracked": 54,
+    "indicators_tracked": 60
+  }
+}

@@ -1,0 +1,31 @@
+---
+interface Props {
+  id?: string;
+  label: string;
+  icon: string; // IconSprite symbol id, e.g. "ic-coin"
+  accent?: "economy" | "health" | "education" | "infrastructure" | "none";
+  class?: string;
+  captionId?: string;
+  caption?: string;
+}
+const { id, label, icon, accent = "none", class: className = "", captionId, caption } = Astro.props;
+
+const chipBg: Record<string, string> = {
+  economy: "bg-economy-soft text-economy",
+  health: "bg-health-soft text-health",
+  education: "bg-education-soft text-education",
+  infrastructure: "bg-infrastructure-soft text-infrastructure",
+  none: "bg-surface-2 text-muted",
+};
+---
+
+<div class:list={["glass rounded-bento p-4 sm:p-5 flex flex-col gap-3 sm:gap-3.5 min-w-0 transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)] hover:-translate-y-1 hover:shadow-[0_16px_40px_rgba(10,22,40,0.14)]", className]}>
+  <span class:list={["w-9 h-9 sm:w-[38px] sm:h-[38px] rounded-xl flex items-center justify-center shrink-0", chipBg[accent]]}>
+    <svg width="18" height="18"><use href={`#${icon}`}/></svg>
+  </span>
+  <div class="min-w-0">
+    <div id={id} class="font-mono text-lg sm:text-2xl font-bold tracking-tight tabular-nums truncate">—</div>
+    <div class="text-[12px] sm:text-[12.5px] text-muted mt-1 leading-snug">{label}</div>
+    {captionId && <div id={captionId} class="text-[11px] font-semibold text-cyan-deep mt-0.5 truncate">{caption}</div>}
+  </div>
+</div>

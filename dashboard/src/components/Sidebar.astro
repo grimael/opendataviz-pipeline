@@ -1,0 +1,161 @@
+---
+import { POLE_META, POLES } from "../lib/types";
+
+interface Props {
+  active: string;
+}
+const { active } = Astro.props;
+
+const navItems = [
+  { key: "home", href: "/", label: "Vue d'ensemble", icon: "ic-compass" },
+  ...POLES.map((p) => ({ key: p, href: `/${p.toLowerCase()}/`, label: POLE_META[p].label, icon: POLE_META[p].sidebarIcon })),
+];
+
+const iconTint: Record<string, string> = {
+  Economy: "#FF6B35",
+  Health: "#1A3A5C",
+  Education: "#00D4FF",
+  Infrastructure: "#0077BE",
+};
+---
+
+<div id="sidebar-backdrop" class="fixed inset-0 bg-black/50 z-30 hidden lg:hidden"></div>
+
+<aside
+  id="app-sidebar"
+  class="fixed inset-y-0 left-0 z-40 w-[264px] flex-none bg-surface border-r border-border text-ink flex flex-col overflow-hidden -translate-x-full transition-transform duration-300 ease-in-out lg:translate-x-0"
+>
+  <div class="flex items-center justify-between gap-3 px-6 py-7 border-b border-border">
+    <a href="/" class="flex items-center gap-3 min-w-0">
+      <svg width="38" height="38" class="shrink-0"><use href="#ic-logo"/></svg>
+      <div class="leading-tight min-w-0">
+        <div class="font-display font-extrabold text-[17px] tracking-tight">
+          <span class="text-brand">Open</span><span class="text-cyan">Data</span><span class="text-brand">Viz</span>
+        </div>
+        <div class="text-[10px] text-muted tracking-wide uppercase truncate mt-0.5">Observatoire des données</div>
+      </div>
+    </a>
+    <button id="sidebar-close" class="lg:hidden shrink-0 w-8 h-8 rounded-lg hover:bg-surface-2 flex items-center justify-center text-muted" aria-label="Fermer le menu">
+      <svg width="18" height="18"><use href="#ic-close"/></svg>
+    </button>
+  </div>
+
+  <nav class="px-4 py-5 flex flex-col gap-1 overflow-y-auto">
+    <div class="px-2.5 pb-1.5 text-[11px] font-bold tracking-wider uppercase text-muted">Général</div>
+    {navItems.map((item) => (
+      <a
+        href={item.href}
+        class:list={[
+          "flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300",
+          active === item.key
+            ? "bg-cyan/10 text-brand shadow-[inset_2px_0_0_0_var(--color-cyan)]"
+            : "text-brand-light hover:bg-surface-2",
+        ]}
+      >
+        <span
+          class="w-[19px] h-[19px] inline-flex items-center justify-center shrink-0"
+          style={active === item.key ? "color:#0077BE" : `color:${iconTint[item.key] || "inherit"}`}
+        >
+          <svg width="19" height="19"><use href={`#${item.icon}`}/></svg>
+        </span>
+        {item.label}
+      </a>
+    ))}
+
+    <div class="px-2.5 pt-5 pb-1.5 text-[11px] font-bold tracking-wider uppercase text-muted">Outils</div>
+    <a
+      href="/assistant/"
+      class:list={[
+        "flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300",
+        active === "assistant"
+          ? "bg-cyan/10 text-brand shadow-[inset_2px_0_0_0_var(--color-cyan)]"
+          : "text-brand-light hover:bg-surface-2",
+      ]}
+    >
+      <span class="w-[19px] h-[19px] inline-flex items-center justify-center shrink-0" style="color:#00D4FF">
+        <svg width="19" height="19"><use href="#ic-spark"/></svg>
+      </span>
+      Assistant IA
+    </a>
+    <a
+      href="/statistiques/"
+      class:list={[
+        "flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300",
+        active === "statistics"
+          ? "bg-cyan/10 text-brand shadow-[inset_2px_0_0_0_var(--color-cyan)]"
+          : "text-brand-light hover:bg-surface-2",
+      ]}
+    >
+      <span class="w-[19px] h-[19px] inline-flex items-center justify-center shrink-0" style={active === "statistics" ? "color:#0077BE" : "color:#00A85C"}>
+        <svg width="19" height="19"><use href="#ic-bars"/></svg>
+      </span>
+      Statistiques Avancées
+    </a>
+
+    <div class="px-2.5 pt-5 pb-1.5 text-[11px] font-bold tracking-wider uppercase text-muted">Ressources</div>
+    <a
+      href="/data/"
+      class:list={[
+        "flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300",
+        active === "data"
+          ? "bg-cyan/10 text-brand shadow-[inset_2px_0_0_0_var(--color-cyan)]"
+          : "text-brand-light hover:bg-surface-2",
+      ]}
+    >
+      <span class="w-[19px] h-[19px] inline-flex items-center justify-center shrink-0" style={active === "data" ? "color:#0077BE" : "color:#FF6B35"}>
+        <svg width="19" height="19"><use href="#ic-download"/></svg>
+      </span>
+      Données
+    </a>
+    <a
+      href="/resources/"
+      class:list={[
+        "flex items-center gap-3 px-3.5 py-2.5 rounded-xl text-sm font-semibold transition-all duration-300",
+        active === "resources"
+          ? "bg-cyan/10 text-brand shadow-[inset_2px_0_0_0_var(--color-cyan)]"
+          : "text-brand-light hover:bg-surface-2",
+      ]}
+    >
+      <span class="w-[19px] h-[19px] inline-flex items-center justify-center shrink-0" style={active === "resources" ? "color:#0077BE" : "color:#1A3A5C"}>
+        <svg width="19" height="19"><use href="#ic-filter"/></svg>
+      </span>
+      Ressources
+    </a>
+  </nav>
+
+  <div class="mt-auto p-4 relative z-10">
+    <div class="bg-surface-2 border border-border rounded-2xl p-4">
+      <div class="flex items-center justify-between">
+        <span class="text-xs text-muted font-semibold">Qualité des données</span>
+        <span class="w-1.5 h-1.5 rounded-full bg-[#00E676]"></span>
+      </div>
+      <div class="font-mono text-[26px] font-bold text-brand mt-1 tabular-nums">
+        <span id="sidebar-quality-score">—</span><span class="text-sm text-muted font-semibold"> /100</span>
+      </div>
+      <div class="h-[5px] rounded-full bg-border mt-2.5 overflow-hidden">
+        <div id="sidebar-quality-bar" class="h-full rounded-full" style="width:0%; background:linear-gradient(90deg,#00D4FF,#00E676)"></div>
+      </div>
+    </div>
+  </div>
+
+  <svg class="absolute left-0 right-0 bottom-0 w-[264px] h-[150px] pointer-events-none -z-10" aria-hidden="true"><rect width="264" height="150" fill="url(#pat-geo-light)"/></svg>
+</aside>
+
+<script>
+  const sidebar = document.getElementById("app-sidebar");
+  const backdrop = document.getElementById("sidebar-backdrop");
+  const closeBtn = document.getElementById("sidebar-close");
+  const openBtn = document.getElementById("sidebar-open");
+
+  function openSidebar() {
+    sidebar?.classList.remove("-translate-x-full");
+    backdrop?.classList.remove("hidden");
+  }
+  function closeSidebar() {
+    sidebar?.classList.add("-translate-x-full");
+    backdrop?.classList.add("hidden");
+  }
+  openBtn?.addEventListener("click", openSidebar);
+  closeBtn?.addEventListener("click", closeSidebar);
+  backdrop?.addEventListener("click", closeSidebar);
+</script>

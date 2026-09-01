@@ -1,0 +1,38 @@
+---
+interface Props {
+  title?: string;
+  subtitle?: string;
+  accent?: "economy" | "health" | "education" | "infrastructure" | "none";
+  class?: string;
+  bodyClass?: string;
+  allowOverflow?: boolean; // set true when the card contains a dropdown/popover that must escape its bounds
+}
+const { title, subtitle, accent = "none", class: className = "", bodyClass = "", allowOverflow = false } = Astro.props;
+
+const accentBar: Record<string, string> = {
+  economy: "bg-economy",
+  health: "bg-health",
+  education: "bg-education",
+  infrastructure: "bg-infrastructure",
+  none: "",
+};
+---
+
+<div class:list={[
+  "glass relative rounded-bento",
+  "hover:-translate-y-1 hover:shadow-[0_16px_40px_rgba(10,22,40,0.14)]",
+  "transition-all duration-300 ease-[cubic-bezier(0.4,0,0.2,1)]",
+  allowOverflow ? "overflow-visible" : "overflow-hidden",
+  className,
+]}>
+  {accent !== "none" && <div class:list={["absolute top-0 left-0 right-0 h-1", accentBar[accent]]}></div>}
+  <div class:list={["p-5 sm:p-6", bodyClass]}>
+    {title && (
+      <div class="mb-4">
+        <h3 class="font-display font-bold text-[15px] text-ink">{title}</h3>
+        {subtitle && <p class="text-xs text-muted mt-0.5">{subtitle}</p>}
+      </div>
+    )}
+    <slot />
+  </div>
+</div>

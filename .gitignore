@@ -1,0 +1,65 @@
+# Python — anchored to repo root (no leading-slash-less patterns here: an
+# unanchored "lib/" or "dist/" would also match dashboard/src/lib/ or
+# dashboard/dist/, silently excluding real source code)
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+/build/
+/develop-eggs/
+/dist/
+/downloads/
+/eggs/
+/.eggs/
+/lib/
+/lib64/
+/parts/
+/sdist/
+/var/
+/wheels/
+*.egg-info/
+*.egg
+.installed.cfg
+
+# Virtual environments
+.env
+.venv
+env/
+venv/
+ENV/
+
+# DuckDB
+*.duckdb
+*.duckdb.wal
+
+# Data warehouse directory (large files) — root only. Does NOT match
+# dashboard/public/data/, which holds the small generated JSON the dashboard
+# needs to render without a live API, and is tracked.
+/data/
+
+# Node (dashboard/ has its own .gitignore too; these guard the repo root in
+# case a tool is ever run from there instead of dashboard/)
+node_modules/
+.astro/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Testing
+.pytest_cache/
+htmlcov/
+.coverage
+
+# AI coding assistant config/instructions — not part of the project itself
+CLAUDE.md
+AGENTS.md
+.claude/
+dashboard/README.md

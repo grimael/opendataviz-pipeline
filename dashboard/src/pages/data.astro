@@ -1,0 +1,112 @@
+---
+import fs from "node:fs";
+import path from "node:path";
+import Layout from "../layouts/Layout.astro";
+import BentoCard from "../components/BentoCard.astro";
+import { POLES, POLE_META } from "../lib/types";
+import { API_BASE_URL } from "../lib/config";
+import type { IndicatorMeta } from "../lib/types";
+
+const indicatorsPath = path.join(process.cwd(), "public", "data", "indicators.json");
+const indicatorsByPole: Record<string, IndicatorMeta[]> = JSON.parse(fs.readFileSync(indicatorsPath, "utf-8"));
+
+const FORMATS = [
+  { id: "csv", label: "CSV", hint: "Excel, R, tout tableur" },
+  { id: "xlsx", label: "Excel", hint: ".xlsx" },
+  { id: "dta", label: "Stata", hint: ".dta" },
+  { id: "sav", label: "SPSS", hint: ".sav" },
+];
+---
+
+<Layout
+  title="OpenDataViz — Données"
+  description="Catalogue des 60 indicateurs OpenDataViz : prévisualisation et téléchargement des données brutes (World Bank) et corrigées (ML) en CSV, Excel, Stata et SPSS."
+  active="data"
+  eyebrow="Ressources"
+  pageTitle="Données"
+>
+  <BentoCard accent="infrastructure">
+    <div class="flex items-start gap-4">
+      <span class="w-11 h-11 rounded-xl bg-infrastructure-soft text-infrastructure flex items-center justify-center shrink-0">
+        <svg width="22" height="22"><use href="#ic-node"/></svg>
+      </span>
+      <div class="min-w-0">
+        <h2 class="font-display font-bold text-base">Source : World Bank API v2</h2>
+        <p class="text-sm text-muted mt-1.5 leading-relaxed">
+          Toutes les données proviennent de l'
+          <a href="https://api.worldbank.org/v2" target="_blank" rel="noopener" class="underline hover:text-cyan-deep transition-colors font-medium">API publique de la Banque Mondiale</a>
+          (gratuite, sans authentification, 16 000+ indicateurs disponibles). OpenDataViz en extrait quotidiennement 60,
+          répartis en 4 pôles, pour les 54 pays africains sur 2000–2024, puis comble les valeurs manquantes par imputation
+          ML (KNN/Iterative) et projette 5 ans supplémentaires (ElasticNet). Chaque valeur reste tracée : observée,
+          imputée ou projetée.
+        </p>
+        <a href="https://data.worldbank.org/" target="_blank" rel="noopener" class="inline-flex items-center gap-1.5 text-xs font-semibold text-infrastructure mt-3 hover:underline">
+          Explorer le portail World Bank Open Data <svg width="13" height="13"><use href="#ic-arrow-right"/></svg>
+        </a>
+      </div>
+    </div>
+  </BentoCard>
+
+  <!-- ============ FILTER ============ -->
+  <BentoCard title="Choisir un indicateur">
+    <div class="flex flex-wrap items-end gap-4">
+      <div class="flex flex-col gap-1.5">
+        <label class="text-[11px] font-bold text-muted uppercase tracking-wide">Pôle</label>
+        <select id="data-pole" class="text-sm font-semibold rounded-xl border border-border bg-surface-2 px-3.5 py-2.5 min-w-[180px]">
+          {POLES.map((p) => <option value={p}>{POLE_META[p].label}</option>)}
+        </select>
+      </div>
+      <div class="flex flex-col gap-1.5 flex-1 min-w-[240px]">
+        <label class="text-[11px] font-bold text-muted uppercase tracking-wide">Indicateur</label>
+        <select id="data-indicator" class="text-sm font-semibold rounded-xl border border-border bg-surface-2 px-3.5 py-2.5 w-full"></select>
+      </div>
+    </div>
+  </BentoCard>
+
+  <!-- ============ PREVIEW ============ -->
+  <BentoCard title="Aperçu" subtitle="54 pays × 2000–2024 pour l'indicateur sélectionné">
+    <div id="preview-summary" class="flex flex-wrap gap-3 mb-4 text-xs"></div>
+    <div class="overflow-x-auto max-h-96 overflow-y-auto rounded-xl border border-border">
+      <table class="w-full text-sm">
+        <thead class="sticky top-0 bg-surface-2">
+          <tr class="text-left text-muted text-[11px] font-bold uppercase tracking-wide">
+            <th class="py-2.5 px-3">Pays</th>
+            <th class="py-2.5 px-3">Année</th>
+            <th class="py-2.5 px-3 text-right">Valeur</th>
+            <th class="py-2.5 px-3">Nature</th>
+          </tr>
+        </thead>
+        <tbody id="preview-body"></tbody>
+      </table>
+    </div>
+  </BentoCard>
+
+  <!-- ============ DOWNLOADS ============ -->
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+    <BentoCard accent="economy">
+      <div class="flex items-center gap-2 mb-1">
+        <span class="w-2 h-2 rounded-full bg-economy"></span>
+        <h3 class="font-display font-bold text-[15px]">Données brutes (World Bank)</h3>
+      </div>
+      <p class="text-xs text-muted mb-4">La série telle que publiée par la Banque Mondiale — trous d'origine inclus, aucune valeur comblée.</p>
+      <div class="grid grid-cols-2 gap-2" id="download-observed"></div>
+    </BentoCard>
+    <BentoCard accent="infrastructure">
+      <div class="flex items-center gap-2 mb-1">
+        <span class="w-2 h-2 rounded-full bg-infrastructure"></span>
+        <h3 class="font-display font-bold text-[15px]">Données corrigées & imputées</h3>
+      </div>
+      <p class="text-xs text-muted mb-4">Série complète : valeurs observées + valeurs manquantes comblées par ML, avec la colonne <code class="text-[11px] bg-surface-2 px-1 py-0.5 rounded">is_imputed</code>.</p>
+      <div class="grid grid-cols-2 gap-2" id="download-all"></div>
+    </BentoCard>
+  </div>
+</Layout>
+
+<script define:vars={{ indicatorsByPole, apiBaseUrl: API_BASE_URL, formats: FORMATS }}>
+  window.__INDICATORS_BY_POLE__ = indicatorsByPole;
+  window.__API_BASE_URL__ = apiBaseUrl;
+  window.__EXPORT_FORMATS__ = formats;
+</script>
+<script>
+  import "../lib/data-page";
+</script>

@@ -1,0 +1,79 @@
+---
+import Layout from "../layouts/Layout.astro";
+import BentoCard from "../components/BentoCard.astro";
+import KpiTile from "../components/KpiTile.astro";
+---
+
+<Layout
+  title="OpenDataViz — Observatoire Économique Africain"
+  description="Tableau de bord interactif : 60 indicateurs économiques, santé, éducation et infrastructure pour 54 pays africains."
+  active="home"
+  eyebrow="Tableau de bord"
+  pageTitle="Overview"
+>
+  <section class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
+    <KpiTile id="kpi-gdp" label="PIB total Afrique" icon="ic-coin" accent="economy" />
+    <KpiTile id="kpi-population" label="Population totale" icon="ic-users" accent="economy" />
+    <KpiTile id="kpi-growth" label="Croissance PIB moy." icon="ic-trend" accent="economy" />
+    <KpiTile id="kpi-life" label="Espérance de vie moy." icon="ic-pulse" accent="health" />
+    <KpiTile id="kpi-literacy" label="Alphabétisation moy." icon="ic-cap" accent="education" />
+    <KpiTile id="kpi-internet" label="Accès à internet moy." icon="ic-node" accent="infrastructure" />
+  </section>
+
+  <section class="grid grid-cols-1 lg:grid-cols-4 gap-4">
+    <BentoCard title="PIB par pays (Top 10)" class="lg:col-span-2" bodyClass="h-80">
+      <canvas id="chart-gdp-bar"></canvas>
+    </BentoCard>
+    <BentoCard title="Population par région" class="lg:col-span-1" bodyClass="flex flex-col">
+      <div class="h-56"><canvas id="chart-pop-region"></canvas></div>
+      <div id="pop-region-legend" class="flex flex-col gap-1.5 pt-3 text-[12px]"></div>
+    </BentoCard>
+    <BentoCard title="Niveau de revenu" class="lg:col-span-1" bodyClass="flex flex-col">
+      <div class="h-56"><canvas id="chart-income-level"></canvas></div>
+      <div id="income-level-legend" class="flex flex-col gap-1.5 pt-3 text-[12px]"></div>
+    </BentoCard>
+  </section>
+
+  <section class="grid grid-cols-1 gap-4">
+    <BentoCard title="Croissance du PIB dans le temps (Afrique)" bodyClass="h-[28rem] sm:h-[34rem] pb-4">
+      <canvas id="chart-growth-line"></canvas>
+    </BentoCard>
+    <BentoCard title="Espérance de vie vs PIB par habitant" bodyClass="h-[28rem] sm:h-[34rem] pb-4">
+      <canvas id="chart-scatter"></canvas>
+    </BentoCard>
+  </section>
+
+  <section class="grid grid-cols-1 lg:grid-cols-3 gap-4">
+    <BentoCard title="Carte choroplèthe de l'Afrique" class="lg:col-span-2">
+      <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
+        <p class="text-xs text-muted">Cliquez un pays pour le détail</p>
+        <select id="map-indicator" class="text-sm rounded-full border border-border bg-surface-2 px-3 py-1.5 max-w-full"></select>
+      </div>
+      <div id="map" class="w-full h-[320px] sm:h-[420px] rounded-2xl overflow-hidden"></div>
+    </BentoCard>
+    <BentoCard title="Qualité des données" subtitle="Score global calculé quotidiennement">
+      <div id="quality-mini" class="grid grid-cols-2 gap-3"></div>
+    </BentoCard>
+  </section>
+
+  <!-- Country detail modal -->
+  <div id="country-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/40 backdrop-blur-sm p-4">
+    <div class="bg-surface rounded-bento max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl border border-border">
+      <div class="p-5 sm:p-6">
+        <div class="flex items-center justify-between mb-4">
+          <h2 id="modal-title" class="font-display text-xl font-bold"></h2>
+          <button id="modal-close" class="w-8 h-8 rounded-full hover:bg-surface-2 flex items-center justify-center text-muted shrink-0" aria-label="Fermer">
+            <svg width="16" height="16"><use href="#ic-close"/></svg>
+          </button>
+        </div>
+        <div id="modal-meta" class="text-sm text-muted mb-4"></div>
+        <div class="grid grid-cols-2 gap-3 mb-6" id="modal-indicators"></div>
+        <div class="h-56"><canvas id="chart-modal-trend"></canvas></div>
+      </div>
+    </div>
+  </div>
+</Layout>
+
+<script>
+  import "../lib/home-app";
+</script>

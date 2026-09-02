@@ -23,6 +23,10 @@ Par **Grimael** — [GitHub](https://github.com/grimael) · [LinkedIn](https://l
 
 ![Assistant IA répondant à une comparaison de pays avec les valeurs réelles](docs/screenshots/assistant.png)
 
+**API REST avec documentation interactive (Swagger)** — tous les endpoints testables directement depuis le navigateur :
+
+![Documentation Swagger de l'API OpenDataViz listant tous les endpoints](docs/screenshots/api-docs.png)
+
 ---
 
 ## Sommaire

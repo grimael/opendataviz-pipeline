@@ -31,6 +31,7 @@ Par **Grimael** — [GitHub](https://github.com/grimael) · [LinkedIn](https://l
 - [Architecture](#architecture)
 - [Couverture des données](#couverture-des-données)
 - [Démarrage rapide](#démarrage-rapide)
+- [Déploiement](#déploiement)
 - [Le dashboard](#le-dashboard)
 - [L'API](#lapi)
 - [L'assistant conversationnel](#lassistant-conversationnel)
@@ -169,6 +170,10 @@ GEMINI_API_KEY=...  # https://aistudio.google.com/apikey
 ```
 
 Les deux passent par leurs endpoints compatibles OpenAI (`api/llm.py`), donc changer de fournisseur revient juste à modifier `LLM_PROVIDER=groq|gemini` dans `.env` — sans toucher au code. Modèles par défaut : `openai/gpt-oss-120b` (Groq), `gemini-3.6-flash` (Gemini) — surcharge possible avec `LLM_MODEL` si un fournisseur retire son modèle par défaut. Sans clé configurée, tout le reste du dashboard fonctionne normalement ; seul `/agent/chat` renvoie un 503 expliquant ce qui manque.
+
+## Déploiement
+
+Guide complet, pas à pas, pour déployer l'API et le dashboard gratuitement sur Render : **[DEPLOY.md](DEPLOY.md)**.
 
 ## Le dashboard
 

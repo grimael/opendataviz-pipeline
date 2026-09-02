@@ -1,0 +1,20 @@
+# Only pipeline/, api/, and requirements.txt are ever COPYed into the API
+# image (see api/Dockerfile) — everything else here just bloats and slows
+# down the build-context transfer, and .env/data/ must never reach a build.
+.git/
+.github/
+dashboard/
+docs/
+tests/
+data/
+*.duckdb
+*.duckdb.wal
+.env
+.env.example
+__pycache__/
+.pytest_cache/
+*.pyc
+README.md
+SECURITY.md
+DEPLOY.md
+LICENSE

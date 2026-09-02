@@ -33,3 +33,13 @@ jobs:
           git add dashboard/public/data/
           git diff --cached --quiet || git commit -m "chore: update dashboard data $(date +%Y-%m-%d)"
           git push
+
+      # The dashboard (static site) picks up the commit above automatically —
+      # Render redeploys on every push. The API is different: its data is
+      # baked into a Docker image at build time (no persistent disk on the
+      # free tier), so it stays frozen until something rebuilds it. This
+      # hook is that trigger, keeping both in sync on the same daily cadence.
+      - name: Trigger API redeploy on Render
+        env:
+          RENDER_DEPLOY_HOOK_URL: ${{ secrets.RENDER_DEPLOY_HOOK_URL }}
+        run: curl -fsS -X POST "$RENDER_DEPLOY_HOOK_URL"

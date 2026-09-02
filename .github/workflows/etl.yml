@@ -30,7 +30,15 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add dashboard/public/data/
+          # Also stamp api/ with this run's timestamp: it's the only reliable
+          # way to force Docker to invalidate its cached layer for `RUN
+          # python -m pipeline.main all` in api/Dockerfile on Render. Without
+          # it, a rebuild triggered when nothing under api/ or pipeline/
+          # changed (the normal case — only the dashboard JSON changes daily)
+          # reuses the cached layer wholesale and never re-fetches anything,
+          # silently republishing the same stale data forever.
+          date -u +%Y-%m-%dT%H:%M:%SZ > api/BUILD_STAMP
+          git add dashboard/public/data/ api/BUILD_STAMP
           git diff --cached --quiet || git commit -m "chore: update dashboard data $(date +%Y-%m-%d)"
           git push
 

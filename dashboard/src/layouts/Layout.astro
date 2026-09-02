@@ -11,9 +11,15 @@ interface Props {
   active: string;
   eyebrow: string;
   pageTitle: string;
+  // Caps body/main to exactly the viewport height (instead of the default
+  // min-height, which lets the page grow taller than the screen) so a
+  // page's own internal overflow-y-auto region is what scrolls, not the
+  // whole document. Only the Assistant page needs this — every other page
+  // is naturally taller than the viewport and should scroll normally.
+  fullHeight?: boolean;
 }
 
-const { title, description, active, eyebrow, pageTitle } = Astro.props;
+const { title, description, active, eyebrow, pageTitle, fullHeight = false } = Astro.props;
 ---
 
 <!doctype html>
@@ -28,10 +34,10 @@ const { title, description, active, eyebrow, pageTitle } = Astro.props;
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;600;700&display=swap" rel="stylesheet" />
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'><defs><linearGradient id='g' x1='2' y1='2' x2='38' y2='38'><stop offset='0' stop-color='%2300D4FF'/><stop offset='1' stop-color='%230077BE'/></linearGradient></defs><rect width='40' height='40' rx='11' fill='url(%23g)'/><path d='M20 10 L28.5 20 L20 30 L11.5 20 Z' fill='none' stroke='%23FFFFFF' stroke-width='2' stroke-linejoin='round'/></svg>" />
   </head>
-  <body class="font-sans antialiased min-h-screen bg-canvas text-ink">
+  <body class:list={["font-sans antialiased bg-canvas text-ink", fullHeight ? "h-dvh overflow-hidden" : "min-h-screen"]}>
     <IconSprite />
     <Sidebar active={active} />
-    <div class="flex flex-col min-h-screen lg:pl-[264px]">
+    <div class:list={["flex flex-col lg:pl-[264px]", fullHeight ? "h-dvh" : "min-h-screen"]}>
       <Header eyebrow={eyebrow} title={pageTitle} />
       <main class="flex-1 min-h-0 px-4 sm:px-6 lg:px-9 py-5 sm:py-7 flex flex-col gap-4 sm:gap-5 min-w-0 overflow-x-hidden">
         <slot />

@@ -174,7 +174,7 @@ async function sendMessage(text: string) {
     history.push({ role: "assistant", content: data.reply });
   } catch (e) {
     typing.remove();
-    appendErrorMessage("Impossible de contacter l'API OpenDataViz. Vérifie qu'elle est bien démarrée (localhost:8000).");
+    appendErrorMessage("Impossible de contacter l'API OpenDataViz. Vérifie qu'elle est bien démarrée et accessible.");
     history.pop();
   } finally {
     sending = false;

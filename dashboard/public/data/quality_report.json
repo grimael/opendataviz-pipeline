@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-09-02T10:13:31.802340+00:00",
+  "last_run": "2026-09-03T10:25:44.253360+00:00",
   "dimensions": {
     "completeness": {
       "score": 73.0,
@@ -229,16 +229,16 @@
           "status": "pass"
         },
         {
-          "indicator": "NE.IMP.GNFS.ZS",
-          "name": "Imports of Goods and Services (% of GDP)",
+          "indicator": "NE.EXP.GNFS.ZS",
+          "name": "Exports of Goods and Services (% of GDP)",
           "total_records": 1350,
           "non_null": 1156,
           "completeness_pct": 85.6,
           "status": "pass"
         },
         {
-          "indicator": "NE.EXP.GNFS.ZS",
-          "name": "Exports of Goods and Services (% of GDP)",
+          "indicator": "NE.IMP.GNFS.ZS",
+          "name": "Imports of Goods and Services (% of GDP)",
           "total_records": 1350,
           "non_null": 1156,
           "completeness_pct": 85.6,
@@ -357,16 +357,16 @@
           "status": "pass"
         },
         {
-          "indicator": "NY.GDP.PCAP.PP.CD",
-          "name": "GDP per Capita, PPP (current international $)",
+          "indicator": "IT.CEL.SETS.P2",
+          "name": "Mobile Cellular Subscriptions (per 100 people)",
           "total_records": 1350,
           "non_null": 1307,
           "completeness_pct": 96.8,
           "status": "pass"
         },
         {
-          "indicator": "IT.CEL.SETS.P2",
-          "name": "Mobile Cellular Subscriptions (per 100 people)",
+          "indicator": "NY.GDP.PCAP.PP.CD",
+          "name": "GDP per Capita, PPP (current international $)",
           "total_records": 1350,
           "non_null": 1307,
           "completeness_pct": 96.8,
@@ -413,6 +413,14 @@
           "status": "pass"
         },
         {
+          "indicator": "SH.IMM.MEAS",
+          "name": "Immunization, Measles (% of children ages 12-23 months)",
+          "total_records": 1350,
+          "non_null": 1339,
+          "completeness_pct": 99.2,
+          "status": "pass"
+        },
+        {
           "indicator": "SH.IMM.IDPT",
           "name": "Immunization, DPT (% of children ages 12-23 months)",
           "total_records": 1350,
@@ -423,14 +431,6 @@
         {
           "indicator": "SH.TBS.INCD",
           "name": "Incidence of Tuberculosis (per 100,000 people)",
-          "total_records": 1350,
-          "non_null": 1339,
-          "completeness_pct": 99.2,
-          "status": "pass"
-        },
-        {
-          "indicator": "SH.IMM.MEAS",
-          "name": "Immunization, Measles (% of children ages 12-23 months)",
           "total_records": 1350,
           "non_null": 1339,
           "completeness_pct": 99.2,
@@ -453,8 +453,16 @@
           "status": "pass"
         },
         {
-          "indicator": "SH.DYN.MORT",
-          "name": "Under-5 Mortality Rate (per 1,000 live births)",
+          "indicator": "SP.DYN.IMRT.IN",
+          "name": "Infant Mortality Rate (per 1,000 live births)",
+          "total_records": 1350,
+          "non_null": 1350,
+          "completeness_pct": 100.0,
+          "status": "pass"
+        },
+        {
+          "indicator": "SP.DYN.LE00.IN",
+          "name": "Life Expectancy at Birth",
           "total_records": 1350,
           "non_null": 1350,
           "completeness_pct": 100.0,
@@ -469,16 +477,8 @@
           "status": "pass"
         },
         {
-          "indicator": "SP.DYN.IMRT.IN",
-          "name": "Infant Mortality Rate (per 1,000 live births)",
-          "total_records": 1350,
-          "non_null": 1350,
-          "completeness_pct": 100.0,
-          "status": "pass"
-        },
-        {
-          "indicator": "SP.DYN.LE00.IN",
-          "name": "Life Expectancy at Birth",
+          "indicator": "SH.DYN.MORT",
+          "name": "Under-5 Mortality Rate (per 1,000 live births)",
           "total_records": 1350,
           "non_null": 1350,
           "completeness_pct": 100.0,
@@ -1095,99 +1095,8 @@
       "score": 96.7,
       "details": [
         {
-          "indicator": "NY.GDP.PCAP.PP.CD",
-          "name": "GDP per Capita, PPP (current international $)",
-          "latest_year": 2024,
-          "countries_with_data": 54,
-          "status": "pass"
-        },
-        {
-          "indicator": "EG.USE.ELEC.KH.PC",
-          "name": "Electric Power Consumption (kWh per capita)",
-          "latest_year": 2024,
-          "countries_with_data": 54,
-          "status": "pass"
-        },
-        {
-          "indicator": "SL.UEM.TOTL.ZS",
-          "name": "Unemployment (% of labor force)",
-          "latest_year": 2024,
-          "countries_with_data": 54,
-          "status": "pass"
-        },
-        {
-          "indicator": "SI.POV.GINI",
-          "name": "GINI Index",
-          "latest_year": 2024,
-          "countries_with_data": 54,
-          "status": "pass"
-        },
-        {
-          "indicator": "NE.EXP.GNFS.ZS",
-          "name": "Exports of Goods and Services (% of GDP)",
-          "latest_year": 2024,
-          "countries_with_data": 54,
-          "status": "pass"
-        },
-        {
-          "indicator": "DT.DOD.DECT.GN.ZS",
-          "name": "External Debt Stocks (% of GNI)",
-          "latest_year": 2024,
-          "countries_with_data": 54,
-          "status": "pass"
-        },
-        {
-          "indicator": "NY.GNS.ICTR.ZS",
-          "name": "Gross Savings (% of GDP)",
-          "latest_year": 2024,
-          "countries_with_data": 54,
-          "status": "pass"
-        },
-        {
-          "indicator": "SP.DYN.LE00.IN",
-          "name": "Life Expectancy at Birth",
-          "latest_year": 2024,
-          "countries_with_data": 54,
-          "status": "pass"
-        },
-        {
-          "indicator": "SH.XPD.CHEX.PC.CD",
-          "name": "Health Expenditure per Capita (current US$)",
-          "latest_year": 2024,
-          "countries_with_data": 54,
-          "status": "pass"
-        },
-        {
-          "indicator": "SH.IMM.MEAS",
-          "name": "Immunization, Measles (% of children ages 12-23 months)",
-          "latest_year": 2024,
-          "countries_with_data": 54,
-          "status": "pass"
-        },
-        {
-          "indicator": "SE.XPD.TOTL.GD.ZS",
-          "name": "Government Expenditure on Education (% of GDP)",
-          "latest_year": 2024,
-          "countries_with_data": 54,
-          "status": "pass"
-        },
-        {
-          "indicator": "SE.PRM.ENRL.TC.ZS",
-          "name": "Pupil-Teacher Ratio, Primary",
-          "latest_year": 2024,
-          "countries_with_data": 54,
-          "status": "pass"
-        },
-        {
-          "indicator": "SE.TER.ENRR",
-          "name": "School Enrollment, Tertiary (% gross)",
-          "latest_year": 2024,
-          "countries_with_data": 54,
-          "status": "pass"
-        },
-        {
-          "indicator": "SE.PRE.ENRR",
-          "name": "School Enrollment, Pre-Primary (% gross)",
+          "indicator": "GC.DOD.TOTL.GD.ZS",
+          "name": "Central Government Debt, Total (% of GDP)",
           "latest_year": 2024,
           "countries_with_data": 54,
           "status": "pass"
@@ -1200,15 +1109,29 @@
           "status": "pass"
         },
         {
-          "indicator": "FP.CPI.TOTL.ZG",
-          "name": "Inflation (CPI, annual %)",
+          "indicator": "SP.DYN.TFRT.IN",
+          "name": "Fertility Rate, Total (births per woman)",
           "latest_year": 2024,
           "countries_with_data": 54,
           "status": "pass"
         },
         {
-          "indicator": "IS.AIR.PSGR",
-          "name": "Air Transport, Passengers Carried",
+          "indicator": "SE.SEC.ENRR",
+          "name": "School Enrollment, Secondary (% gross)",
+          "latest_year": 2024,
+          "countries_with_data": 54,
+          "status": "pass"
+        },
+        {
+          "indicator": "SH.H2O.SMDW.ZS",
+          "name": "Safely Managed Drinking Water Services (% of population)",
+          "latest_year": 2024,
+          "countries_with_data": 54,
+          "status": "pass"
+        },
+        {
+          "indicator": "SI.POV.GINI",
+          "name": "GINI Index",
           "latest_year": 2024,
           "countries_with_data": 54,
           "status": "pass"
@@ -1277,8 +1200,8 @@
           "status": "pass"
         },
         {
-          "indicator": "SE.COM.DURS",
-          "name": "Compulsory Education, Duration (years)",
+          "indicator": "SH.STA.MMRT",
+          "name": "Maternal Mortality Ratio (per 100,000 live births)",
           "latest_year": 2024,
           "countries_with_data": 54,
           "status": "pass"
@@ -1326,50 +1249,8 @@
           "status": "pass"
         },
         {
-          "indicator": "SH.XPD.CHEX.GD.ZS",
-          "name": "Current Health Expenditure (% of GDP)",
-          "latest_year": 2024,
-          "countries_with_data": 54,
-          "status": "pass"
-        },
-        {
-          "indicator": "GC.DOD.TOTL.GD.ZS",
-          "name": "Central Government Debt, Total (% of GDP)",
-          "latest_year": 2024,
-          "countries_with_data": 54,
-          "status": "pass"
-        },
-        {
-          "indicator": "SH.STA.MMRT",
-          "name": "Maternal Mortality Ratio (per 100,000 live births)",
-          "latest_year": 2024,
-          "countries_with_data": 54,
-          "status": "pass"
-        },
-        {
-          "indicator": "SP.DYN.TFRT.IN",
-          "name": "Fertility Rate, Total (births per woman)",
-          "latest_year": 2024,
-          "countries_with_data": 54,
-          "status": "pass"
-        },
-        {
-          "indicator": "SE.SEC.ENRR",
-          "name": "School Enrollment, Secondary (% gross)",
-          "latest_year": 2024,
-          "countries_with_data": 54,
-          "status": "pass"
-        },
-        {
-          "indicator": "SH.H2O.SMDW.ZS",
-          "name": "Safely Managed Drinking Water Services (% of population)",
-          "latest_year": 2024,
-          "countries_with_data": 54,
-          "status": "pass"
-        },
-        {
-          "indicator": "IT.CEL.SETS.P2",
-          "name": "Mobile Cellular Subscriptions (per 100 people)",
+          "indicator": "EG.FEC.RNEW.ZS",
+          "name": "Renewable Energy Consumption (% of total final energy)",
           "latest_year": 2024,
           "countries_with_data": 54,
           "status": "pass"
@@ -1382,8 +1263,8 @@
           "status": "pass"
         },
         {
-          "indicator": "NY.GDP.MKTP.KD.ZG",
-          "name": "GDP Growth (annual %)",
+          "indicator": "SH.XPD.CHEX.PC.CD",
+          "name": "Health Expenditure per Capita (current US$)",
           "latest_year": 2024,
           "countries_with_data": 54,
           "status": "pass"
@@ -1417,8 +1298,8 @@
           "status": "pass"
         },
         {
-          "indicator": "EG.ELC.ACCS.RU.ZS",
-          "name": "Access to Electricity, Rural (%)",
+          "indicator": "SH.XPD.CHEX.GD.ZS",
+          "name": "Current Health Expenditure (% of GDP)",
           "latest_year": 2024,
           "countries_with_data": 54,
           "status": "pass"
@@ -1445,8 +1326,8 @@
           "status": "pass"
         },
         {
-          "indicator": "SH.STA.STNT.ZS",
-          "name": "Prevalence of Stunting, Children Under 5 (%)",
+          "indicator": "NY.GDP.MKTP.KD.ZG",
+          "name": "GDP Growth (annual %)",
           "latest_year": 2024,
           "countries_with_data": 54,
           "status": "pass"
@@ -1494,22 +1375,141 @@
           "status": "pass"
         },
         {
-          "indicator": "EG.FEC.RNEW.ZS",
-          "name": "Renewable Energy Consumption (% of total final energy)",
+          "indicator": "EG.USE.ELEC.KH.PC",
+          "name": "Electric Power Consumption (kWh per capita)",
           "latest_year": 2024,
           "countries_with_data": 54,
           "status": "pass"
         },
         {
-          "indicator": "IS.VEH.NVEH.P3",
-          "name": "Motor Vehicles (per 1,000 people)",
+          "indicator": "IT.CEL.SETS.P2",
+          "name": "Mobile Cellular Subscriptions (per 100 people)",
+          "latest_year": 2024,
+          "countries_with_data": 54,
+          "status": "pass"
+        },
+        {
+          "indicator": "EG.ELC.ACCS.RU.ZS",
+          "name": "Access to Electricity, Rural (%)",
+          "latest_year": 2024,
+          "countries_with_data": 54,
+          "status": "pass"
+        },
+        {
+          "indicator": "NY.GDP.PCAP.PP.CD",
+          "name": "GDP per Capita, PPP (current international $)",
+          "latest_year": 2024,
+          "countries_with_data": 54,
+          "status": "pass"
+        },
+        {
+          "indicator": "FP.CPI.TOTL.ZG",
+          "name": "Inflation (CPI, annual %)",
+          "latest_year": 2024,
+          "countries_with_data": 54,
+          "status": "pass"
+        },
+        {
+          "indicator": "SL.UEM.TOTL.ZS",
+          "name": "Unemployment (% of labor force)",
+          "latest_year": 2024,
+          "countries_with_data": 54,
+          "status": "pass"
+        },
+        {
+          "indicator": "SH.STA.STNT.ZS",
+          "name": "Prevalence of Stunting, Children Under 5 (%)",
+          "latest_year": 2024,
+          "countries_with_data": 54,
+          "status": "pass"
+        },
+        {
+          "indicator": "NE.EXP.GNFS.ZS",
+          "name": "Exports of Goods and Services (% of GDP)",
+          "latest_year": 2024,
+          "countries_with_data": 54,
+          "status": "pass"
+        },
+        {
+          "indicator": "DT.DOD.DECT.GN.ZS",
+          "name": "External Debt Stocks (% of GNI)",
+          "latest_year": 2024,
+          "countries_with_data": 54,
+          "status": "pass"
+        },
+        {
+          "indicator": "NY.GNS.ICTR.ZS",
+          "name": "Gross Savings (% of GDP)",
+          "latest_year": 2024,
+          "countries_with_data": 54,
+          "status": "pass"
+        },
+        {
+          "indicator": "SP.DYN.LE00.IN",
+          "name": "Life Expectancy at Birth",
+          "latest_year": 2024,
+          "countries_with_data": 54,
+          "status": "pass"
+        },
+        {
+          "indicator": "IS.AIR.PSGR",
+          "name": "Air Transport, Passengers Carried",
+          "latest_year": 2024,
+          "countries_with_data": 54,
+          "status": "pass"
+        },
+        {
+          "indicator": "SH.IMM.MEAS",
+          "name": "Immunization, Measles (% of children ages 12-23 months)",
+          "latest_year": 2024,
+          "countries_with_data": 54,
+          "status": "pass"
+        },
+        {
+          "indicator": "SE.XPD.TOTL.GD.ZS",
+          "name": "Government Expenditure on Education (% of GDP)",
+          "latest_year": 2024,
+          "countries_with_data": 54,
+          "status": "pass"
+        },
+        {
+          "indicator": "SE.PRM.ENRL.TC.ZS",
+          "name": "Pupil-Teacher Ratio, Primary",
+          "latest_year": 2024,
+          "countries_with_data": 54,
+          "status": "pass"
+        },
+        {
+          "indicator": "SE.TER.ENRR",
+          "name": "School Enrollment, Tertiary (% gross)",
+          "latest_year": 2024,
+          "countries_with_data": 54,
+          "status": "pass"
+        },
+        {
+          "indicator": "SE.PRE.ENRR",
+          "name": "School Enrollment, Pre-Primary (% gross)",
+          "latest_year": 2024,
+          "countries_with_data": 54,
+          "status": "pass"
+        },
+        {
+          "indicator": "SE.COM.DURS",
+          "name": "Compulsory Education, Duration (years)",
+          "latest_year": 2024,
+          "countries_with_data": 54,
+          "status": "pass"
+        },
+        {
+          "indicator": "IS.ROD.PAVE.ZS",
+          "name": "Paved Roads (% of total roads)",
           "latest_year": 2012,
           "countries_with_data": 54,
           "status": "fail"
         },
         {
-          "indicator": "IS.ROD.PAVE.ZS",
-          "name": "Paved Roads (% of total roads)",
+          "indicator": "IS.VEH.NVEH.P3",
+          "name": "Motor Vehicles (per 1,000 people)",
           "latest_year": 2012,
           "countries_with_data": 54,
           "status": "fail"

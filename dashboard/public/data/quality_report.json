@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-09-17T10:41:52.517074+00:00",
+  "last_run": "2026-09-18T10:18:19.220368+00:00",
   "dimensions": {
     "completeness": {
       "score": 73.0,
@@ -293,16 +293,16 @@
           "status": "pass"
         },
         {
-          "indicator": "SH.XPD.CHEX.GD.ZS",
-          "name": "Current Health Expenditure (% of GDP)",
+          "indicator": "SH.XPD.CHEX.PC.CD",
+          "name": "Health Expenditure per Capita (current US$)",
           "total_records": 1350,
           "non_null": 1256,
           "completeness_pct": 93.0,
           "status": "pass"
         },
         {
-          "indicator": "SH.XPD.CHEX.PC.CD",
-          "name": "Health Expenditure per Capita (current US$)",
+          "indicator": "SH.XPD.CHEX.GD.ZS",
+          "name": "Current Health Expenditure (% of GDP)",
           "total_records": 1350,
           "non_null": 1256,
           "completeness_pct": 93.0,
@@ -357,16 +357,16 @@
           "status": "pass"
         },
         {
-          "indicator": "NY.GDP.PCAP.PP.CD",
-          "name": "GDP per Capita, PPP (current international $)",
+          "indicator": "IT.CEL.SETS.P2",
+          "name": "Mobile Cellular Subscriptions (per 100 people)",
           "total_records": 1350,
           "non_null": 1307,
           "completeness_pct": 96.8,
           "status": "pass"
         },
         {
-          "indicator": "IT.CEL.SETS.P2",
-          "name": "Mobile Cellular Subscriptions (per 100 people)",
+          "indicator": "NY.GDP.PCAP.PP.CD",
+          "name": "GDP per Capita, PPP (current international $)",
           "total_records": 1350,
           "non_null": 1307,
           "completeness_pct": 96.8,
@@ -413,6 +413,14 @@
           "status": "pass"
         },
         {
+          "indicator": "SH.IMM.IDPT",
+          "name": "Immunization, DPT (% of children ages 12-23 months)",
+          "total_records": 1350,
+          "non_null": 1339,
+          "completeness_pct": 99.2,
+          "status": "pass"
+        },
+        {
           "indicator": "SH.IMM.MEAS",
           "name": "Immunization, Measles (% of children ages 12-23 months)",
           "total_records": 1350,
@@ -429,27 +437,11 @@
           "status": "pass"
         },
         {
-          "indicator": "SH.IMM.IDPT",
-          "name": "Immunization, DPT (% of children ages 12-23 months)",
-          "total_records": 1350,
-          "non_null": 1339,
-          "completeness_pct": 99.2,
-          "status": "pass"
-        },
-        {
           "indicator": "EG.ELC.ACCS.UR.ZS",
           "name": "Access to Electricity, Urban (%)",
           "total_records": 1350,
           "non_null": 1343,
           "completeness_pct": 99.5,
-          "status": "pass"
-        },
-        {
-          "indicator": "SP.DYN.IMRT.IN",
-          "name": "Infant Mortality Rate (per 1,000 live births)",
-          "total_records": 1350,
-          "non_null": 1350,
-          "completeness_pct": 100.0,
           "status": "pass"
         },
         {
@@ -461,8 +453,8 @@
           "status": "pass"
         },
         {
-          "indicator": "SH.DYN.MORT",
-          "name": "Under-5 Mortality Rate (per 1,000 live births)",
+          "indicator": "SP.DYN.LE00.IN",
+          "name": "Life Expectancy at Birth",
           "total_records": 1350,
           "non_null": 1350,
           "completeness_pct": 100.0,
@@ -477,8 +469,16 @@
           "status": "pass"
         },
         {
-          "indicator": "SP.DYN.LE00.IN",
-          "name": "Life Expectancy at Birth",
+          "indicator": "SP.DYN.IMRT.IN",
+          "name": "Infant Mortality Rate (per 1,000 live births)",
+          "total_records": 1350,
+          "non_null": 1350,
+          "completeness_pct": 100.0,
+          "status": "pass"
+        },
+        {
+          "indicator": "SH.DYN.MORT",
+          "name": "Under-5 Mortality Rate (per 1,000 live births)",
           "total_records": 1350,
           "non_null": 1350,
           "completeness_pct": 100.0,

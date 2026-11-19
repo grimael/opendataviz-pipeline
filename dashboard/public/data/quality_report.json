@@ -1,5 +1,5 @@
 {
-  "last_run": "2026-11-18T14:56:39.105000+00:00",
+  "last_run": "2026-11-19T15:02:01.990373+00:00",
   "dimensions": {
     "completeness": {
       "score": 73.2,
@@ -293,16 +293,16 @@
           "status": "pass"
         },
         {
-          "indicator": "SH.XPD.CHEX.GD.ZS",
-          "name": "Current Health Expenditure (% of GDP)",
+          "indicator": "SH.XPD.CHEX.PC.CD",
+          "name": "Health Expenditure per Capita (current US$)",
           "total_records": 1350,
           "non_null": 1256,
           "completeness_pct": 93.0,
           "status": "pass"
         },
         {
-          "indicator": "SH.XPD.CHEX.PC.CD",
-          "name": "Health Expenditure per Capita (current US$)",
+          "indicator": "SH.XPD.CHEX.GD.ZS",
+          "name": "Current Health Expenditure (% of GDP)",
           "total_records": 1350,
           "non_null": 1256,
           "completeness_pct": 93.0,
@@ -341,14 +341,6 @@
           "status": "pass"
         },
         {
-          "indicator": "NY.GDP.MKTP.KD.ZG",
-          "name": "GDP Growth (annual %)",
-          "total_records": 1350,
-          "non_null": 1305,
-          "completeness_pct": 96.7,
-          "status": "pass"
-        },
-        {
           "indicator": "BX.KLT.DINV.WD.GD.ZS",
           "name": "FDI Inflows (% of GDP)",
           "total_records": 1350,
@@ -357,16 +349,24 @@
           "status": "pass"
         },
         {
-          "indicator": "IT.CEL.SETS.P2",
-          "name": "Mobile Cellular Subscriptions (per 100 people)",
+          "indicator": "NY.GDP.MKTP.KD.ZG",
+          "name": "GDP Growth (annual %)",
+          "total_records": 1350,
+          "non_null": 1305,
+          "completeness_pct": 96.7,
+          "status": "pass"
+        },
+        {
+          "indicator": "NY.GDP.PCAP.PP.CD",
+          "name": "GDP per Capita, PPP (current international $)",
           "total_records": 1350,
           "non_null": 1307,
           "completeness_pct": 96.8,
           "status": "pass"
         },
         {
-          "indicator": "NY.GDP.PCAP.PP.CD",
-          "name": "GDP per Capita, PPP (current international $)",
+          "indicator": "IT.CEL.SETS.P2",
+          "name": "Mobile Cellular Subscriptions (per 100 people)",
           "total_records": 1350,
           "non_null": 1307,
           "completeness_pct": 96.8,
@@ -445,8 +445,16 @@
           "status": "pass"
         },
         {
-          "indicator": "SP.POP.TOTL",
-          "name": "Population",
+          "indicator": "SP.DYN.LE00.IN",
+          "name": "Life Expectancy at Birth",
+          "total_records": 1350,
+          "non_null": 1350,
+          "completeness_pct": 100.0,
+          "status": "pass"
+        },
+        {
+          "indicator": "SP.DYN.TFRT.IN",
+          "name": "Fertility Rate, Total (births per woman)",
           "total_records": 1350,
           "non_null": 1350,
           "completeness_pct": 100.0,
@@ -469,16 +477,8 @@
           "status": "pass"
         },
         {
-          "indicator": "SP.DYN.TFRT.IN",
-          "name": "Fertility Rate, Total (births per woman)",
-          "total_records": 1350,
-          "non_null": 1350,
-          "completeness_pct": 100.0,
-          "status": "pass"
-        },
-        {
-          "indicator": "SP.DYN.LE00.IN",
-          "name": "Life Expectancy at Birth",
+          "indicator": "SP.POP.TOTL",
+          "name": "Population",
           "total_records": 1350,
           "non_null": 1350,
           "completeness_pct": 100.0,
@@ -1102,8 +1102,8 @@
           "status": "pass"
         },
         {
-          "indicator": "IT.NET.BBND.P2",
-          "name": "Fixed Broadband Subscriptions (per 100 people)",
+          "indicator": "SE.SEC.ENRR",
+          "name": "School Enrollment, Secondary (% gross)",
           "latest_year": 2024,
           "countries_with_data": 54,
           "status": "pass"
@@ -1354,48 +1354,6 @@
           "status": "pass"
         },
         {
-          "indicator": "GC.DOD.TOTL.GD.ZS",
-          "name": "Central Government Debt, Total (% of GDP)",
-          "latest_year": 2024,
-          "countries_with_data": 54,
-          "status": "pass"
-        },
-        {
-          "indicator": "SH.STA.MMRT",
-          "name": "Maternal Mortality Ratio (per 100,000 live births)",
-          "latest_year": 2024,
-          "countries_with_data": 54,
-          "status": "pass"
-        },
-        {
-          "indicator": "SP.DYN.TFRT.IN",
-          "name": "Fertility Rate, Total (births per woman)",
-          "latest_year": 2024,
-          "countries_with_data": 54,
-          "status": "pass"
-        },
-        {
-          "indicator": "SE.SEC.ENRR",
-          "name": "School Enrollment, Secondary (% gross)",
-          "latest_year": 2024,
-          "countries_with_data": 54,
-          "status": "pass"
-        },
-        {
-          "indicator": "SH.H2O.SMDW.ZS",
-          "name": "Safely Managed Drinking Water Services (% of population)",
-          "latest_year": 2024,
-          "countries_with_data": 54,
-          "status": "pass"
-        },
-        {
-          "indicator": "SH.DYN.AIDS.ZS",
-          "name": "HIV Prevalence (% ages 15-49)",
-          "latest_year": 2024,
-          "countries_with_data": 54,
-          "status": "pass"
-        },
-        {
           "indicator": "SP.POP.TOTL",
           "name": "Population",
           "latest_year": 2024,
@@ -1417,8 +1375,8 @@
           "status": "pass"
         },
         {
-          "indicator": "EG.ELC.ACCS.UR.ZS",
-          "name": "Access to Electricity, Urban (%)",
+          "indicator": "SH.DYN.AIDS.ZS",
+          "name": "HIV Prevalence (% ages 15-49)",
           "latest_year": 2024,
           "countries_with_data": 54,
           "status": "pass"
@@ -1489,6 +1447,48 @@
         {
           "indicator": "SH.STA.BASS.ZS",
           "name": "Basic Sanitation Services (% of population)",
+          "latest_year": 2024,
+          "countries_with_data": 54,
+          "status": "pass"
+        },
+        {
+          "indicator": "IT.NET.BBND.P2",
+          "name": "Fixed Broadband Subscriptions (per 100 people)",
+          "latest_year": 2024,
+          "countries_with_data": 54,
+          "status": "pass"
+        },
+        {
+          "indicator": "EG.ELC.ACCS.UR.ZS",
+          "name": "Access to Electricity, Urban (%)",
+          "latest_year": 2024,
+          "countries_with_data": 54,
+          "status": "pass"
+        },
+        {
+          "indicator": "SH.H2O.SMDW.ZS",
+          "name": "Safely Managed Drinking Water Services (% of population)",
+          "latest_year": 2024,
+          "countries_with_data": 54,
+          "status": "pass"
+        },
+        {
+          "indicator": "GC.DOD.TOTL.GD.ZS",
+          "name": "Central Government Debt, Total (% of GDP)",
+          "latest_year": 2024,
+          "countries_with_data": 54,
+          "status": "pass"
+        },
+        {
+          "indicator": "SH.STA.MMRT",
+          "name": "Maternal Mortality Ratio (per 100,000 live births)",
+          "latest_year": 2024,
+          "countries_with_data": 54,
+          "status": "pass"
+        },
+        {
+          "indicator": "SP.DYN.TFRT.IN",
+          "name": "Fertility Rate, Total (births per woman)",
           "latest_year": 2024,
           "countries_with_data": 54,
           "status": "pass"
